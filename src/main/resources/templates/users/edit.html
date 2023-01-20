@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello world</title>
+</head>
+<body>
+  <h1>詳細画面</h1>
+  <p th:text="${users}"</p>
+  <form th:method="post" th:action="@{/users}">
+    <div>
+      <label>名前</label>
+      <input type="text" name="userName" th:value="${users[0].userName}">
+    </div>
+    <div>
+      <label>パスワード</label>
+      <input type="text" name="password" th:value="${users[0].password}">
+    </div>
+    <input type="submit" value="更新">
+  </form>
+</body>
+</html>

@@ -6,7 +6,11 @@
 </head>
 <body>
   <h1>一覧画面</h1>
-  <a href="#" th:href="@{/users/create}">新規登録</a>  
+  <a href="#" th:href="@{/users/create}">新規登録</a>
+  
+  <!-- 検索フォーム -->
+  
+  <!-- 一覧テーブル -->
   <table>
     <thead>
       <tr>
@@ -30,6 +34,9 @@
         <td th:text="${item.point}"></td>
         <td th:text="${item.createdAt}"></td>
         <td th:text="${item.updateAt}"></td>
+        <td>
+          <a href="#" th:href="@{'/users/' + ${item.id}}">詳細</a>
+        </td>
       </tr>
     </tbody>
   </table>
