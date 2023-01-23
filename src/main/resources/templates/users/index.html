@@ -9,9 +9,11 @@
   <a href="#" th:href="@{/users/create}">新規登録</a>
   
   <!-- 検索フォーム -->
+  <form th:action="@{/users}" th:object="${errors}" method="get">
+  </form>
   
   <!-- 一覧テーブル -->
-  <table>
+  <table th:object="${users}">
     <thead>
       <tr>
         <th>ID</th>
@@ -27,16 +29,6 @@
     <tbody>
       <tr th:each="item : ${users}">
         <td th:text="${item.id}"></td>
-        <td th:text="${item.userName}"></td>
-        <td th:text="${item.password}"></td>
-        <td th:text="${item.address}"></td>
-        <td th:text="${item.age}"></td>
-        <td th:text="${item.point}"></td>
-        <td th:text="${item.createdAt}"></td>
-        <td th:text="${item.updateAt}"></td>
-        <td>
-          <a href="#" th:href="@{'/users/' + ${item.id}}">詳細</a>
-        </td>
       </tr>
     </tbody>
   </table>
