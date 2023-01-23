@@ -6,7 +6,8 @@ IDE STS(Spring Tool Suite)<br>
 テンプレートエンジン Thymeleaf<br>
 ビルドツール Gradle<br>
 
-■lombok インストール<br>
+■lombok導入（SpringToolSuite）<br>
+https://www.purin-it.com/sts-lombok<br>
 cd /Applications/SpringToolSuite4.app<br>
 open Contents<br>
 Eclipse/SpringToolSuite4.ini<br>
