@@ -31,12 +31,15 @@ public class UserEntity {
   @Column(name = "age", nullable = false, length = 191)
   private String age;
   
+  @Column(name = "department_id", nullable = true, length = 191)
+  private String departmentId;
+  
   @Column(name = "point", nullable = true)
   private int point;
   
   @Column(name = "created_at", nullable = false)
-  private Date createdAt;
+  private String createdAt;
   
   @Column(name = "update_at", nullable = false)
-  private Date updateAt;
+  private String updateAt;
 }

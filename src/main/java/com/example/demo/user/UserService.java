@@ -15,16 +15,15 @@ public class UserService {
   @Autowired
   private UserRepository userRepository;
   
-  public List<UserEntity> findUsers() {
+  public List<UserEntity> findUserAll() {
     return userRepository.findAll();
   }
   
-  public Optional<UserEntity> findById(int id) {
+  public Optional<UserEntity> findUserById(int id) {
     return userRepository.findById(id);
   }
   
-  public void createUser(Object body) {
-    String sql = "INSERT INTO users(userName, password, address, age, departmentId, createdAt, updateAt) VALUES(?, ?, ?, ?, ?, ?, ?);";
-//    jdbcTemplate.update(sql,  body, "password", "test@gmail.com", "20", "A0001", "2023-01-18T06:25", "2023-01-18T06:25");
+  public void createUser(UserEntity body) {
+    userRepository.save(body);
   }
 }

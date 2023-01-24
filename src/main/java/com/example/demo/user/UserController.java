@@ -26,7 +26,7 @@ public class UserController {
   
   @GetMapping
   public String index(Model model) {
-    List<?> users = userService.findUsers();
+    List<UserEntity> users = userService.findUserAll();
     model.addAttribute("users", users);
     return "user/index";
   }
@@ -38,14 +38,14 @@ public class UserController {
   
   @GetMapping("/{id}")
   public String edit(@PathVariable int id, Model model) {
-    Optional<UserEntity> user = userService.findById(id);
+    Optional<UserEntity> user = userService.findUserById(id);
 	model.addAttribute("user", user.get());
     return "user/edit";
   }
   
   @PostMapping
-  public String store(Object body) {
-//    usersService.createUser(body);
+  public String store(UserEntity body) {
+    userService.createUser(body);
     return "redirect:/user";
   }
 }
