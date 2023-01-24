@@ -1,4 +1,4 @@
-package com.example.demo.users.entity;
+package com.example.demo.user.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -12,8 +12,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "users")
-public class UsersEntity {
+@Table(name = "user")
+public class UserEntity {
   @Id
   @Column(name = "id")
   @GeneratedValue(strategy = GenerationType.IDENTITY)

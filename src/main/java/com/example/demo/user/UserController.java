@@ -1,4 +1,4 @@
-package com.example.demo.users;
+package com.example.demo.user;
 
 import java.util.List;
 import java.util.Map;
@@ -13,36 +13,36 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 
-import com.example.demo.users.dto.request.UsersIndexGetRequestDto;
+import com.example.demo.user.dto.request.UserIndexGetRequestDto;
 
 @Controller
-@RequestMapping("/users")
-public class UsersController {
+@RequestMapping("/user")
+public class UserController {
   @Autowired
-  private UsersService usersService;
+  private UserService userService;
   
   @GetMapping
   public String index(Model model) {
-    List<?> users = usersService.findUsers();
+    List<?> users = userService.findUsers();
     model.addAttribute("users", users);
-    return "users/index";
+    return "user/index";
   }
 
   @GetMapping("/create")
   public String create() {
-    return "users/create";
+    return "user/create";
   }
   
   @GetMapping("/{id}")
   public String edit(@PathVariable int id, Model model) {
 //    List<Map<String, Object>> users = usersService.findUserById(id);
 //	model.addAttribute("users", users);
-    return "users/edit";
+    return "user/edit";
   }
   
   @PostMapping
   public String store(Object body) {
 //    usersService.createUser(body);
-    return "redirect:/users";
+    return "redirect:/user";
   }
 }

@@ -1,4 +1,4 @@
-package com.example.demo.users;
+package com.example.demo.user;
 
 import java.util.List;
 import java.util.Map;
@@ -6,10 +6,10 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.users.repository.UserRepository;
+import com.example.demo.user.repository.UserRepository;
 
 @Service
-public class UsersService {
+public class UserService {
   @Autowired
   private UserRepository userRepository;
   
