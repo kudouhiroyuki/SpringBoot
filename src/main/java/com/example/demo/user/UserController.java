@@ -2,6 +2,8 @@ package com.example.demo.user;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +16,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 
 import com.example.demo.user.dto.request.UserIndexGetRequestDto;
+import com.example.demo.user.entity.UserEntity;
 
 @Controller
 @RequestMapping("/user")
@@ -35,8 +38,8 @@ public class UserController {
   
   @GetMapping("/{id}")
   public String edit(@PathVariable int id, Model model) {
-//    List<Map<String, Object>> users = usersService.findUserById(id);
-//	model.addAttribute("users", users);
+    Optional<UserEntity> user = userService.findById(id);
+	model.addAttribute("user", user.get());
     return "user/edit";
   }
   

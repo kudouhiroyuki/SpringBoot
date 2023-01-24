@@ -2,24 +2,25 @@ package com.example.demo.user;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.user.repository.UserRepository;
+import com.example.demo.user.entity.UserEntity;
 
 @Service
 public class UserService {
   @Autowired
   private UserRepository userRepository;
   
-  public List<?> findUsers() {
+  public List<UserEntity> findUsers() {
     return userRepository.findAll();
   }
   
-  public List<Map<String, Object>> findUserById(int id) {
-	String sql = "SELECT * FROM users WHERE id =" + id;
-	return null;
+  public Optional<UserEntity> findById(int id) {
+    return userRepository.findById(id);
   }
   
   public void createUser(Object body) {

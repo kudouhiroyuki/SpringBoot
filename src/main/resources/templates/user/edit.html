@@ -6,15 +6,14 @@
 </head>
 <body>
   <h1>詳細画面</h1>
-  <p th:text="${users}"</p>
   <form th:method="post" th:action="@{/users}">
     <div>
       <label>名前</label>
-      <input type="text" name="userName" th:value="${users[0].userName}">
+      <input type="text" name="userName" th:value="${user.userName}">
     </div>
     <div>
       <label>パスワード</label>
-      <input type="text" name="password" th:value="${users[0].password}">
+      <input type="text" name="password" th:value="${user.password}">
     </div>
     <input type="submit" value="更新">
   </form>

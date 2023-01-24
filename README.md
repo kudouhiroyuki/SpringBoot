@@ -1,6 +1,6 @@
 # SpringBoot<br>
 
-http://localhost:8080/users<br>
+http://localhost:8080/user<br>
 
 IDE STS(Spring Tool Suite)<br>
 テンプレートエンジン Thymeleaf<br>
