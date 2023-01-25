@@ -15,5 +15,5 @@ Eclipse/SpringToolSuite4.ini<br>
 -javaagent:/Applications/SpringToolSuite4.app/Contents/Eclipse/lombok.jar<br>
 
 ```
-System.out.println("test");<br>
+System.out.println("test");
 ```
