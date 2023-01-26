@@ -15,16 +15,24 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 
-import com.example.demo.domain.service.UserService;
-import com.example.demo.user.dto.request.UserIndexGetRequestDto;
 import com.example.demo.domain.entity.UserEntity;
+import com.example.demo.domain.service.DepartmentService;
+import com.example.demo.domain.service.UserService;
+import com.example.demo.domain.entity.DepartmentEntity;
+import com.example.demo.user.dto.request.UserIndexGetRequestDto;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
+  private final UserService userService;
+  private final DepartmentService departmentService;
+	
   @Autowired
-  private UserService userService;
-  
+  public UserController(UserService userService, DepartmentService departmentService) {
+    this.userService = userService;
+	this.departmentService = departmentService;
+  }
+
   @GetMapping
   public String index(Model model) {
     List<UserEntity> users = userService.findUserAll();
@@ -33,7 +41,9 @@ public class UserController {
   }
 
   @GetMapping("/create")
-  public String create() {
+  public String create(Model model) {
+    List<DepartmentEntity> departments = departmentService.findDepartmentAll();
+    model.addAttribute("departments", departments);
     return "user/create";
   }
   
