@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 
-import com.example.demo.domain.entity.UserEntity;
-import com.example.demo.domain.service.DepartmentService;
 import com.example.demo.domain.service.UserService;
+import com.example.demo.domain.service.DepartmentService;
+import com.example.demo.domain.entity.UserEntity;
 import com.example.demo.domain.entity.DepartmentEntity;
 import com.example.demo.user.dto.request.UserIndexGetRequestDto;
 

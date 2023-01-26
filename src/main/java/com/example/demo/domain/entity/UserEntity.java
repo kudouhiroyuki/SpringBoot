@@ -6,13 +6,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.JoinColumn;
-import java.util.Date;
 
 import lombok.Data;
-
-import com.example.demo.domain.entity.DepartmentEntity;
 
 @Data
 @Entity
@@ -34,10 +29,9 @@ public class UserEntity {
   
   @Column(name = "age", nullable = false, length = 191)
   private String age;
-  
-  @OneToOne
-  @JoinColumn(name = "department_id", unique = true)
-  private DepartmentEntity department;
+    
+  @Column(name = "department_id", nullable = true)
+  private String departmentId;
   
   @Column(name = "point", nullable = true)
   private int point;
