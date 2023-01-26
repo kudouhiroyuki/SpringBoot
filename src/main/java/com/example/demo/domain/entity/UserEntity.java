@@ -1,11 +1,19 @@
 package com.example.demo.domain.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
 
 import lombok.Data;
 
@@ -32,6 +40,10 @@ public class UserEntity {
     
   @Column(name = "department_id", nullable = true)
   private String departmentId;
+  
+  @ManyToOne
+  @JoinColumn(name = "department_id", insertable=false, updatable=false)
+  private DepartmentEntity department;
   
   @Column(name = "point", nullable = true)
   private int point;
