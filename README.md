@@ -2,9 +2,9 @@
 
 http://localhost:8080/user<br>
 
-「Web」→「Spring Web」
-「Developer Tools」→「Spring Boot DevTools」
-「Template Engine」→「Thymeleaf」
+「Web」→「Spring Web」<br>
+「Developer Tools」→「Spring Boot DevTools」<br>
+「Template Engine」→「Thymeleaf」<br>
 
 ```
 System.out.println("test");
