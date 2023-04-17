@@ -1,6 +1,6 @@
 # SpringBoot<br>
 
-■インストールされているJavaバージョン確認<br>
+■インストールしているJavaバージョン確認<br>
 /usr/libexec/java_home -V<br>
 
 ■使用しているJavaバージョン確認<br>
