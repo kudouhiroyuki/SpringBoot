@@ -17,7 +17,7 @@ source ~/.zshrc<br>
 「Developer Tools」→「Spring Boot DevTools」<br>
 「Template Engine」→「Thymeleaf」<br>
 
-http://localhost:8080/user<br>
+http://localhost:8080<br>
 
 https://itsakura.com/java-springboot-hello<br>
 
