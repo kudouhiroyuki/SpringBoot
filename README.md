@@ -10,6 +10,7 @@ java -version<br>
 /usr/libexec/java_home -v "17"<br>
 export JAVA_HOME=`/usr/libexec/java_home -v "17"`<br>
 PATH=$JAVA_HOME/bin:$PATH<br>
+source ~/.zshrc<br>
 
 http://localhost:8080/user<br>
 
