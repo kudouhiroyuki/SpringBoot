@@ -1,4 +1,12 @@
 # SpringBoot<br>
+■環境
+IDE：Spring Tool Suite4<br>
+
+■設定<br>
+「Web」→「Spring Web」<br>
+「Developer Tools」→「Spring Boot DevTools」<br>
+「Template Engine」→「Thymeleaf」<br>
+
 
 ■インストールしているJavaバージョン確認<br>
 /usr/libexec/java_home -V<br>
@@ -11,11 +19,6 @@ java -version<br>
 export JAVA_HOME=`/usr/libexec/java_home -v "17"`<br>
 PATH=$JAVA_HOME/bin:$PATH<br>
 source ~/.zshrc<br>
-
-■設定<br>
-「Web」→「Spring Web」<br>
-「Developer Tools」→「Spring Boot DevTools」<br>
-「Template Engine」→「Thymeleaf」<br>
 
 http://localhost:8080<br>
 
