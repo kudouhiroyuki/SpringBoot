@@ -5,7 +5,7 @@ IDE：Spring Tool Suite4<br>
 
 ■設定<br>
 「Web」→「Spring Web（WEBアプリを構築するためのスターター）」<br>
-「Developer Tools」→「Spring Boot DevTools（サーバを再起動しなくてもコードが反映される）」<br>
+「Developer Tools」→「Spring Boot DevTools（再起動しなくてもコードが反映される）」<br>
 「Template Engine」→「Thymeleaf（ビューを作成するためのテンプレートエンジン）」<br>
 
 
