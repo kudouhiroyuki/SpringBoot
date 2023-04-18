@@ -1,11 +1,12 @@
 # SpringBoot<br>
 ■環境<br>
 IDE：Spring Tool Suite4<br>
+ビルドツール：Gradle<br>
 
 ■設定<br>
-「Web」→「Spring Web」<br>
-「Developer Tools」→「Spring Boot DevTools」<br>
-「Template Engine」→「Thymeleaf」<br>
+「Web」→「Spring Web（WEBアプリを構築するためのスターター）」<br>
+「Developer Tools」→「Spring Boot DevTools（サーバを再起動しなくてもコードの修正が反映される）」<br>
+「Template Engine」→「Thymeleaf（ビューを作成するためのテンプレートエンジン）」<br>
 
 
 ■インストールしているJavaバージョン確認<br>
