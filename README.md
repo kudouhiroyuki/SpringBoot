@@ -7,7 +7,8 @@ IDE：Spring Tool Suite4<br>
 「Web」→「Spring Web（WEBアプリを構築するためのスターター）」<br>
 「Developer Tools」→「Spring Boot DevTools（再起動しなくてもコードが反映される）」<br>
 「Template Engine」→「Thymeleaf（ビューを作成するためのテンプレートエンジン）」<br>
-
+「SQL」→「JDBC API（Javaからデータベースを操作するインターフェイス）」<br>
+「SQL」→「MySQL Driver（MySQLへの接続ドライバ）」<br>
 
 ■インストールしているJavaバージョン確認<br>
 /usr/libexec/java_home -V<br>
