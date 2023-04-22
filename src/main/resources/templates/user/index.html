@@ -5,6 +5,11 @@
   <title>Hello world</title>
 </head>
 <body>
-  <h1 th:text="${users}"></h1>
+  <table>
+    <tr th:each="item: ${userList}">
+      <td th:text="${item.id}"></td>
+      <td th:text="${item.userName}"></td>
+    </tr>
+  </table>
 </body>
 </html>
