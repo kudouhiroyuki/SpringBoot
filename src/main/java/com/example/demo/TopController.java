@@ -16,7 +16,7 @@ public class TopController {
   private JdbcTemplate jdbcTemplate;
   
   @GetMapping("/")
-  public String index(Model model) {
+  public String demo(Model model) {
     model.addAttribute("message", "index");
   
     String sql = "SELECT * FROM department";
