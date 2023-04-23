@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Hello world</title>
+</head>
+<body>
+  <h1>一覧画面</h1>
+  <a href="#" th:href="@{/users/create}">新規登録</a>
+  
+  <!-- 一覧テーブル -->
+  <table th:object="${users}">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>名前</th>
+        <th>パスワード</th>
+        <th>メールアドレス</th>
+        <th>年齢</th>
+        <th>ポイント</th>
+        <th>createdAt</th>
+        <th>updateAt</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="item : ${users}">
+        <td th:text="${item.id}"></td>
+        <td th:text="${item.userName}"></td>
+        <td>
+          <a href="#" th:href="@{'/users/' + ${item.id}}">詳細</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

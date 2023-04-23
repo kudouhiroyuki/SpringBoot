@@ -23,7 +23,7 @@ PATH=$JAVA_HOME/bin:$PATH<br>
 source ~/.zshrc<br>
 
 http://localhost:8080<br>
-http://localhost:8080/user<br>
+http://localhost:8080/users<br>
 
 https://itsakura.com/java-springboot-hello<br>
 

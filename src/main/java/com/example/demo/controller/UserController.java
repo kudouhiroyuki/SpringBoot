@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.service.UserService;
 
 @Controller
-@RequestMapping("/user") 
+@RequestMapping("/users") 
 public class UserController {
 	
   @Autowired
@@ -19,8 +19,8 @@ public class UserController {
 	
   @GetMapping
   public String index(Model model) {
-    List<?> userList = userService.findUserAll();
-    model.addAttribute("userList", userList);
-    return "user/index";
+    List<?> users = userService.findUserAll();
+    model.addAttribute("users", users);
+    return "users/index";
   }
 }

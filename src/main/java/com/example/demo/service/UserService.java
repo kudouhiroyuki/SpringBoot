@@ -14,10 +14,6 @@ public class UserService {
   private UserRepository userRepository;
 	
   public List<?> findUserAll() {
-	System.out.println("test");
-	System.out.println(userRepository.findAll());
-	System.out.println("test");
-
     return userRepository.findAll();
   }
 }
