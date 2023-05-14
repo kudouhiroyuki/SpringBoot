@@ -7,6 +7,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Table(name = "user")
 public class UsersEntity {
@@ -16,18 +19,4 @@ public class UsersEntity {
   
   @Column(name = "user_name", nullable = false, length = 191)
   private String userName;
-  
-  public int getId() {
-      return id;
-  }
-  public void setId(int id) {
-      this.id = id;
-  }
- 
-  public String getUserName() {
-      return userName;
-  }
-  public void setUserName(String userName) {
-      this.userName = userName;
-  }
 }

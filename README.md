@@ -22,6 +22,13 @@ export JAVA_HOME=`/usr/libexec/java_home -v "17"`<br>
 PATH=$JAVA_HOME/bin:$PATH<br>
 source ~/.zshrc<br>
 
+■Lombok設定<br>
+①ダウンロード（https://projectlombok.org/download）<br>
+②ファイル配置（/Applications/SpringToolSuite4.app/Contents/Eclipse）<br>
+③ファイル実行（/Applications/SpringToolSuite4.app/Contents/Eclipse/SpringToolSuite4.ini）<br>
+④Install/Updateクリック
+⑤完了（-javaagent:/Applications/SpringToolSuite4.app/Contents/Eclipse/lombok.jar）
+
 http://localhost:8080<br>
 http://localhost:8080/users<br>
 
