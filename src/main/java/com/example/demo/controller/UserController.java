@@ -23,7 +23,7 @@ public class UserController {
 	
   @GetMapping
   public String index(Model model) {
-    List<?> users = userService.findUserAll();
+    List<UsersEntity> users = userService.findUserAll();
     model.addAttribute("users", users);
     return "users/index";
   }
