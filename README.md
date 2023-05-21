@@ -35,5 +35,7 @@ http://localhost:8080/users<br>
 https://itsakura.com/java-springboot-hello<br>
 
 ```
+javac test.java
+
 System.out.println("test");
 ```
