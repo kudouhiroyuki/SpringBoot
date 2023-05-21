@@ -1,5 +1,10 @@
 class Test {
   public static void main(String[] args) {
+    // ■コンパイル
+    // javac test.java
+    // ■プログラム実行
+    // java Test 
+
     System.out.println("Test");
     
     String name;

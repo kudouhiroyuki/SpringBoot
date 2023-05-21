@@ -33,11 +33,3 @@ http://localhost:8080<br>
 http://localhost:8080/users<br>
 
 https://itsakura.com/java-springboot-hello<br>
-
-```
-■コンパイル
-javac test.java
-
-■プログラム実行
-java Test 
-```
