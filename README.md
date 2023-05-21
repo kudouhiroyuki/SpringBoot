@@ -40,6 +40,4 @@ javac test.java
 
 ■プログラム実行
 java Test 
-
-System.out.println("test");
 ```
