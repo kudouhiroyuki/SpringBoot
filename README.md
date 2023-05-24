@@ -1,8 +1,8 @@
 ■環境<br>
 フレームワーク：SpringBoot(3.0.5)<br>
 java：Java 17<br>
-IDE (統合開発環境) ：Spring Tool Suite4<br>
 ビルドツール：Gradle<br>
+IDE (統合開発環境) ：Spring Tool Suite4<br>
 
 ■設定<br>
 「Web」→「Spring Web（WEBアプリを構築するためのスターター）」<br>
@@ -34,3 +34,5 @@ http://localhost:8080<br>
 http://localhost:8080/users<br>
 
 https://itsakura.com/java-springboot-hello<br>
+
+curl -X GET "http://localhost:8080"<br>
