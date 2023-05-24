@@ -1,6 +1,6 @@
 ■環境<br>
 フレームワーク：SpringBoot(3.0.5)<br>
-IDE：Spring Tool Suite4<br>
+IDE (統合開発環境) ：Spring Tool Suite4<br>
 ビルドツール：Gradle<br>
 
 ■設定<br>
