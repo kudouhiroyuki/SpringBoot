@@ -26,6 +26,12 @@
       <tr th:each="item : ${users}">
         <td th:text="${item.id}"></td>
         <td th:text="${item.userName}"></td>
+        <td th:text="${item.password}"></td>
+        <td th:text="${item.address}"></td>
+        <td th:text="${item.age}"></td>
+        <td th:text="${item.point}"></td>
+        <td th:text="${item.createdAt}"></td>
+        <td th:text="${item.updatedAt}"></td>
         <td>
           <a href="#" th:href="@{'/users/' + ${item.id}}">詳細</a>
         </td>

@@ -36,3 +36,8 @@ http://localhost:8080/users<br>
 https://itsakura.com/java-springboot-hello<br>
 
 curl -X GET "http://localhost:8080"<br>
+
+■キーワード<br>
+Spring JPA<br>
+Entity（リレーション）<br>
+Thymeleaf<br>
