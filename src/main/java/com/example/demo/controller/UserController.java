@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.stereotype.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -15,6 +16,7 @@ import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 
 @Controller
+//@RestController
 @RequestMapping("/users") 
 public class UserController {
 	
@@ -27,6 +29,13 @@ public class UserController {
     model.addAttribute("users", users);
     return "users/index";
   }
+  
+//  @GetMapping
+//  public List<UserEntity> index(Model model) {
+//    List<UserEntity> users = userService.findUserAll();
+//    model.addAttribute("users", users);
+//    return users;
+//  }
   
   @GetMapping("/create")
   public String create() {

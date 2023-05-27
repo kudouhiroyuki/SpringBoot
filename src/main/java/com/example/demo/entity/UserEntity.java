@@ -1,11 +1,16 @@
 package com.example.demo.entity;
 
+import java.util.List;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
+import jakarta.persistence.OneToOne;
+
 import java.sql.Date;
 import lombok.Data;
 
@@ -28,6 +33,10 @@ public class UserEntity {
   
   @Column(name = "age", nullable = false, length = 191)
   private String age;
+  
+  @OneToOne
+  @JoinColumn(name = "department_id")
+  private DepartmentEntity department;
   
   @Column(name = "point", nullable = false)
   private Integer point;

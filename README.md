@@ -41,4 +41,6 @@ curl -X GET "http://localhost:8080"<br>
 ■キーワード<br>
 Spring JPA<br>
 Entity（リレーション）<br>
+ORM(Object-Relational Mapping)<br>
 Thymeleaf<br>
+ユーザ認証<br>
