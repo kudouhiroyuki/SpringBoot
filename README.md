@@ -32,6 +32,7 @@ source ~/.zshrc<br>
 
 http://localhost:8080<br>
 http://localhost:8080/users<br>
+http://localhost:8080/departments<br>
 
 https://itsakura.com/java-springboot-hello<br>
 

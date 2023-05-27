@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.example.demo.entity.UsersEntity;
+import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserRepository;
 
 @Service
@@ -15,11 +15,11 @@ public class UserService {
   @Autowired
   private UserRepository userRepository;
 	
-  public List<UsersEntity> findUserAll() {
+  public List<UserEntity> findUserAll() {
     return userRepository.findAll();
   }
   
-  public Optional<UsersEntity> findUserById(int id) {
+  public Optional<UserEntity> findUserById(int id) {
     return userRepository.findById(id);
   }
   

@@ -5,18 +5,14 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-
-import java.sql.Date;
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Column;
-
+import java.sql.Date;
 import lombok.Data;
 
 @Data
 @Entity
 @Table(name = "user")
-public class UsersEntity {
+public class UserEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
