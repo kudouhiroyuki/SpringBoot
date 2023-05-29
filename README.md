@@ -50,5 +50,8 @@ Thymeleaf<br>
 その列の中でデータが一意（他と重複しない）でなければならないという制約。<br>
 
 ■「User・Department」<br>
-片方向リレーションシップ<br>
-片方向なので、Department側にはマッピングしない。<br>
+＠OneToOne(1対1)<br>
+
+＠OneToMany(1対多)<br>
+＠ManyToOne(多対1)<br>
+＠ManyToMany(多対多)<br>
