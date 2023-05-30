@@ -34,8 +34,6 @@ http://localhost:8080<br>
 http://localhost:8080/users<br>
 http://localhost:8080/departments<br>
 
-https://itsakura.com/java-springboot-hello<br>
-
 curl -X GET "http://localhost:8080"<br>
 
 ■キーワード<br>
@@ -49,7 +47,7 @@ Thymeleaf<br>
 一意制約とは、リレーショナルデータベースでテーブルにデータを追加・更新する際の制約の一つ<br>
 その列の中でデータが一意（他と重複しない）でなければならないという制約。<br>
 
-■「User・Department」<br>
+■「User(FK)・Department」<br>
 ＠OneToOne(1対1)<br>
 
 ＠OneToMany(1対多)<br>
