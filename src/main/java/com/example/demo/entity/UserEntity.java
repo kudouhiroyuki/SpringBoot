@@ -7,7 +7,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 
 import java.sql.Date;
 import lombok.Data;
@@ -32,7 +32,7 @@ public class UserEntity {
   @Column(name = "age", nullable = false, length = 191)
   private String age;
   
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "department_id")
   private DepartmentEntity department;
   
