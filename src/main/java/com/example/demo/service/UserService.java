@@ -23,7 +23,7 @@ public class UserService {
     return userRepository.findById(id);
   }
   
-  public void createUser(Object body) {
-    System.out.println(body);
+  public void createUser(UserEntity body) {
+    userRepository.save(body);
   }
 }

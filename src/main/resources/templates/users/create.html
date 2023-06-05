@@ -8,7 +8,23 @@
   <h1>登録画面</h1>
   <form th:method="post" th:action="@{/users}">
     <label for="userName">名前</label>
-    <input type="text" name="userName">
+    <input type="text" name="userName" value="name99">
+    <label for="password">パスワード</label>
+    <input type="text" name="password" value="password">
+    <label for="address">メールアドレス</label>
+    <input type="text" name="address" value="address">
+    <label for="age">年齢</label>
+    <input type="text" name="age" value="30">
+    
+    <label for="department_id">部署ID</label>
+    <input type="text" name="department_id" value="A0001">
+    
+    <label for="point">ポイント</label>
+    <input type="text" name="point" value="0">
+    <label for="createdAt">createdAt</label>
+    <input type="date" name="createdAt" value="2010-10-01">
+    <label for="updatedAt">updatedAt</label>
+    <input type="date" name="updatedAt" value="2010-10-01">
     <input type="submit" value="登録">
   </form>
 </body>
