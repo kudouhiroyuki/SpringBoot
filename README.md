@@ -47,8 +47,9 @@ Thymeleaf<br>
 一意制約とは、リレーショナルデータベースでテーブルにデータを追加・更新する際の制約の一つ<br>
 その列の中でデータが一意（他と重複しない）でなければならないという制約。<br>
 
-■「User(FK)・Department」<br>
-＠ManyToOne(多対1)・なし<br>
+■エンティティの関連付け
+「User(FK)・Department」<br>
+「ManyToOne・なし」（一方向）
 
 ＠OneToMany(1対多)<br>
 ＠OneToOne(1対1)<br>
