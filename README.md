@@ -48,7 +48,7 @@ Thymeleaf<br>
 その列の中でデータが一意（他と重複しない）でなければならないという制約。<br>
 
 ■エンティティの関連付け<br>
-「User(FK)・Department」<br>
+「User(FK/外部キー)・Department」<br>
 「ManyToOne・なし」（一方向）
 
 ＠OneToMany(1対多)<br>
