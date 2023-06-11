@@ -17,7 +17,14 @@
     <input type="text" name="age" value="30">
     
     <label for="department_id">部署ID</label>
-    <input type="text" name="department_id" value="A0001">
+    <select>
+      <option value="00"></option>
+      <option
+        th:each="item : ${departments}"
+        th:value="${item.departmentId}"
+        th:text="${item.departmentName}">
+      </option>
+    </select>
     
     <label for="point">ポイント</label>
     <input type="text" name="point" value="0">

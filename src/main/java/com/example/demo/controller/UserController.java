@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
+import com.example.demo.service.DepartmentService;
 
 @Controller
 @RequestMapping("/users") 
@@ -20,6 +22,8 @@ public class UserController {
 	
   @Autowired
   private UserService userService;
+  @Autowired
+  private DepartmentService departmentService;
 	
   @GetMapping
   public String index(Model model) {
@@ -29,7 +33,9 @@ public class UserController {
   }
   
   @GetMapping("/create")
-  public String create() {
+  public String create(Model model) {  
+    List<DepartmentEntity> departments = departmentService.findUserAll();
+    model.addAttribute("departments", departments);
     return "users/create";
   }
   
