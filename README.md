@@ -57,7 +57,10 @@ Thymeleaf<br>
 ＠ManyToMany(多対多)<br>
 
 ```
-DepartmentEntity departments = new DepartmentEntity();
-departments.setDepartmentId("C0001");
-departments.setDepartmentName("人事");
+import java.util.List;
+import java.util.ArrayList;
+
+DepartmentEntity department = new DepartmentEntity();
+department.setDepartmentId("C0001");
+department.setDepartmentName("人事");
 ```

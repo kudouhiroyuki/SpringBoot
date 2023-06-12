@@ -47,8 +47,8 @@ public class UserController {
   }
   
   @PostMapping
-  public String store(UserEntity body) {
-    userService.createUser(body);
+  public String store(UserEntity user) {
+    userService.createUser(user);
     return "redirect:/users";
   }
 }
