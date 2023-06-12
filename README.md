@@ -55,3 +55,9 @@ Thymeleaf<br>
 ＠OneToOne(1対1)<br>
 ＠ManyToOne(多対1)<br>
 ＠ManyToMany(多対多)<br>
+
+```
+DepartmentEntity departments = new DepartmentEntity();
+departments.setDepartmentId("C0001");
+departments.setDepartmentName("人事");
+```

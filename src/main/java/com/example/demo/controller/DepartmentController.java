@@ -20,7 +20,7 @@ public class DepartmentController {
   private DepartmentService departmentService;
 
   @GetMapping
-  public String index(Model model) {
+  public String index(Model model) {	
     List<DepartmentEntity> departments = departmentService.findUserAll();
     model.addAttribute("departments", departments);
     return "departments/index";

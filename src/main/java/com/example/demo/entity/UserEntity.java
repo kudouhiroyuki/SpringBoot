@@ -32,12 +32,12 @@ public class UserEntity {
   @Column(name = "age", nullable = false, length = 191)
   private String age;
   
-//  @ManyToOne
-//  @JoinColumn(name = "department_id")
-//  private DepartmentEntity department;
+  @ManyToOne
+  @JoinColumn(name = "department_id")
+  private DepartmentEntity department;
   
-  @Column(name = "department_id", length = 191)
-  private String departmentId;
+//  @Column(name = "department_id", length = 191)
+//  private String departmentId;
   
   @Column(name = "point", nullable = false)
   private Integer point;
