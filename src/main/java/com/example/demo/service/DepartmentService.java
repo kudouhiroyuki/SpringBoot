@@ -17,4 +17,8 @@ public class DepartmentService {
   public List<DepartmentEntity> findUserAll() {
     return departmentRepository.findAll();
   }
+  
+  public void createDepartment(DepartmentEntity department) {
+    departmentRepository.save(department);
+  }
 }
