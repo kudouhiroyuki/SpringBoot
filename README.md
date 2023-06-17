@@ -31,10 +31,6 @@ source ~/.zshrc<br>
 ④Install/Updateクリック<br>
 ⑤完了（-javaagent:/Applications/SpringToolSuite4.app/Contents/Eclipse/lombok.jar）<br>
 
-http://localhost:8080<br>
-http://localhost:8080/users<br>
-http://localhost:8080/departments<br>
-
 curl -X GET "http://localhost:8080"<br>
 
 ■キーワード<br>
