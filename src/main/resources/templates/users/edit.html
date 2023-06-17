@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Hello world</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<div th:replace="~{partials/head}"></div>
+
 <body>
+  <div th:insert="~{partials/header}"></div>
+  
   <h1>詳細画面</h1>
   <form th:method="post" th:action="@{/users}">
     <div>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Hello world</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<div th:replace="~{partials/head}"></div>
+
 <body>
+  <div th:replace="~{partials/header}"></div>
+
   <h1>一覧画面</h1>
   <a href="#" th:href="@{/users/create}">新規登録</a>
   

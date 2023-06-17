@@ -1,8 +1,9 @@
 ■環境<br>
-フレームワーク：SpringBoot(3.0.5)<br>
-java：Java 17<br>
-ビルドツール：Gradle<br>
-IDE (統合開発環境) ：Spring Tool Suite4<br>
+SpringBoot(3.0.5)<br>
+Java 17<br>
+Gradle<br>
+Thymeleaf<br>
+Spring Tool Suite4<br>
 
 ■設定<br>
 「Web」→「Spring Web（WEBアプリを構築するためのスターター）」<br>

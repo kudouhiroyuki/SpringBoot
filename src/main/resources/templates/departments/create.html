@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-  <meta charset="UTF-8">
-  <title>Hello world</title>
-</head>
+<div th:replace="~{partials/head}"></div>
+
 <body>
+  <div th:replace="~{partials/header}"></div>
+  
   <h1>登録画面</h1>
   <form th:method="post" th:action="@{/departments}">
     <input type="text" name="departmentId" value="C0001">
