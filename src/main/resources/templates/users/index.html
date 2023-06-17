@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <title>Hello world</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
   <h1>一覧画面</h1>
   <a href="#" th:href="@{/users/create}">新規登録</a>
   
   <!-- 一覧テーブル -->
-  <table th:object="${users}">
+  <table th:object="${users}" class="table table-striped table-hover table-sm">
     <thead>
       <tr>
         <th>ID</th>

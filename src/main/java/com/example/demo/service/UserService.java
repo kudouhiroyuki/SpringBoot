@@ -8,12 +8,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.entity.UserEntity;
 import com.example.demo.repository.UserRepository;
+import com.example.demo.entity.DepartmentEntity;
+import com.example.demo.repository.DepartmentRepository;
 
 @Service
 public class UserService {
 	
   @Autowired
   private UserRepository userRepository;
+  
+  @Autowired
+  private DepartmentRepository departmentRepository;
 	
   public List<UserEntity> findUserAll() {
     return userRepository.findAll();
@@ -24,6 +29,8 @@ public class UserService {
   }
   
   public void createUser(UserEntity user) {
+    DepartmentEntity department = departmentRepository.findByDepartmentIdIs(user.getDepartmentId());
+    user.setDepartment(department);  
     userRepository.save(user);
   }
 }

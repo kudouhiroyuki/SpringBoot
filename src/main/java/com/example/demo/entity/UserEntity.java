@@ -31,10 +31,14 @@ public class UserEntity {
   
   @Column(name = "age", nullable = false, length = 191)
   private String age;
-  
+ 
+  // @JoinColumn(name = "department_id", updatable = false, insertable = false)  
   @ManyToOne
   @JoinColumn(name = "department_id")
   private DepartmentEntity department;
+  
+  @Column(name = "department_id", nullable = false, length = 191, updatable = false, insertable = false)
+  private String departmentId;
   
   @Column(name = "point", nullable = false)
   private Integer point;

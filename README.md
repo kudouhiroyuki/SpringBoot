@@ -60,7 +60,11 @@ Thymeleaf<br>
 import java.util.List;
 import java.util.ArrayList;
 
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToOne;
+
 DepartmentEntity department = new DepartmentEntity();
 department.setDepartmentId("C0001");
 department.setDepartmentName("人事");
+departmentRepository.save(department);
 ```

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.entity.UserEntity;
+import com.example.demo.repository.DepartmentRepository;
+import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import com.example.demo.service.DepartmentService;
 
@@ -24,6 +26,12 @@ public class UserController {
   private UserService userService;
   @Autowired
   private DepartmentService departmentService;
+  
+  @Autowired
+  private UserRepository userRepository;
+  
+  @Autowired
+  private DepartmentRepository departmentRepository;
 	
   @GetMapping
   public String index(Model model) {
