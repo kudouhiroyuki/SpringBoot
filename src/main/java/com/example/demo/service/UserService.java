@@ -33,4 +33,9 @@ public class UserService {
     user.setDepartment(department);  
     userRepository.save(user);
   }
+  
+  
+  public void destroyUser(int id) {
+    userRepository.deleteById(id);
+  }
 }
