@@ -8,14 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.entity.UserEntity;
-import com.example.demo.repository.DepartmentRepository;
-import com.example.demo.repository.UserRepository;
 import com.example.demo.service.UserService;
 import com.example.demo.service.DepartmentService;
 
@@ -27,12 +26,6 @@ public class UserController {
   private UserService userService;
   @Autowired
   private DepartmentService departmentService;
-  
-  @Autowired
-  private UserRepository userRepository;
-  
-  @Autowired
-  private DepartmentRepository departmentRepository;
 	
   @GetMapping
   public String index(Model model) {
@@ -51,13 +44,21 @@ public class UserController {
   @GetMapping("/{id}")
   public String edit(@PathVariable int id, Model model) {
     Optional<UserEntity> users = userService.findUserById(id);
+    List<DepartmentEntity> departments = departmentService.findUserAll();
 	model.addAttribute("users", users);
+	model.addAttribute("departments", departments);
     return "users/edit";
   }
   
   @PostMapping
   public String store(UserEntity user) {
     userService.createUser(user);
+    return "redirect:/users";
+  }
+  
+  @PutMapping("/{id}")
+  public String update(UserEntity user) {
+    userService.updateUser(user);
     return "redirect:/users";
   }
   

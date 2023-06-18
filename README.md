@@ -4,6 +4,7 @@ Java 17<br>
 Gradle<br>
 Thymeleaf<br>
 Spring Tool Suite4<br>
+lombok<br>
 
 ■設定<br>
 「Web」→「Spring Web（WEBアプリを構築するためのスターター）」<br>
@@ -37,7 +38,6 @@ curl -X GET "http://localhost:8080"<br>
 Spring JPA<br>
 Entity（リレーション）<br>
 ORM(Object-Relational Mapping)<br>
-Thymeleaf<br>
 ユーザ認証<br>
 
 一意制約（ユニーク制約）<br>

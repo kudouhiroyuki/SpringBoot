@@ -1,37 +1,58 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<div th:replace="~{partials/head}"></div>
+<head th:replace="~{partials/head}"></head>
 
 <body>
   <div th:insert="~{partials/header}"></div>
 
-  <h1>登録画面</h1>
-  <form th:method="post" th:action="@{/users}">
-    <label for="userName">名前</label>
-    <input type="text" name="userName" value="name99">
-    <label for="password">パスワード</label>
-    <input type="text" name="password" value="password">
-    <label for="address">メールアドレス</label>
-    <input type="text" name="address" value="address">
-    <label for="age">年齢</label>
-    <input type="text" name="age" value="30">
-    
-    <label for="department_id">部署ID</label>
-    <select name="departmentId">
-      <option
-        th:each="item : ${departments}"
-        th:value="${item.departmentId}"
-        th:text="${item.departmentName}">
-      </option>
-    </select>
-    
-    <label for="point">ポイント</label>
-    <input type="text" name="point" value="0">
-    <label for="createdAt">createdAt</label>
-    <input type="date" name="createdAt" value="2010-10-01">
-    <label for="updatedAt">updatedAt</label>
-    <input type="date" name="updatedAt" value="2010-10-01">
-    <input type="submit" value="登録">
-  </form>
+  <div class="container">
+    <div th:if="${validationError}" th:each="error : ${validationError}">
+      <label class="text-danger" th:text="${error}"></label>
+    </div>
+    <h1>登録画面</h1>
+    <form th:method="post" th:action="@{/users}">
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label for="userName" class="form-label">名前</label>
+          <input type="text" name="userName" value="name99" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label for="password" class="form-label">パスワード</label>
+          <input type="text" name="password" value="password" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label for="address" class="form-label">メールアドレス</label>
+          <input type="text" name="address" value="address" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label for="age" class="form-label">年齢</label>
+          <input type="text" name="age" value="30" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label for="department_id" class="form-label">部署</label>
+          <select name="departmentId" class="form-control">
+            <option
+              th:each="item : ${departments}"
+              th:value="${item.departmentId}"
+              th:text="${item.departmentName}">
+            </option>
+          </select>
+        </div>
+        <div class="col-12 mb-3">
+          <label for="point" class="form-label">ポイント</label>
+          <input type="text" name="point" value="0" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label for="createdAt" class="form-label">createdAt</label>
+          <input type="date" name="createdAt" value="2010-10-01" class="form-control">
+        </div>
+        <div class="col-12 mb-5">
+          <label for="updatedAt" class="form-label">updatedAt</label>
+          <input type="date" name="updatedAt" value="2010-10-01" class="form-control">
+        </div>
+        <input type="submit" value="登録" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
 </body>
 </html>

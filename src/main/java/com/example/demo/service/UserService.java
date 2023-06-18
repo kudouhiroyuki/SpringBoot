@@ -34,6 +34,12 @@ public class UserService {
     userRepository.save(user);
   }
   
+  public void updateUser(UserEntity user) {
+    DepartmentEntity department = departmentRepository.findByDepartmentIdIs(user.getDepartmentId());
+	user.setDepartment(department);  
+	user.setId(user.getId());
+    userRepository.save(user);
+  }
   
   public void destroyUser(int id) {
     userRepository.deleteById(id);

@@ -1,21 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<div th:replace="~{partials/head}"></div>
+<head th:replace="~{partials/head}"></head>
 
 <body>
   <div th:insert="~{partials/header}"></div>
-  
-  <h1>詳細画面</h1>
-  <form th:method="post" th:action="@{/users}">
-    <div>
-      <label>id</label>
-      <input type="text" name="id" th:field="${users.id}">
+
+  <div class="container">
+    <div th:if="${validationError}" th:each="error : ${validationError}">
+      <label class="text-danger" th:text="${error}"></label>
     </div>
-    <div>
-      <label>名前</label>
-      <input type="text" name="userName" th:field="${users.userName}">
-    </div>
-    <input type="submit" value="更新">
-  </form>
+    <h1>詳細画面</h1>
+    <form th:method="post" th:action="@{/users}">
+      <div class="row">
+        <div class="col-12 mb-3">
+          <label class="form-label">id</label>
+          <input type="text" name="id" th:field="${users.id}" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">名前</label>
+          <input type="text" name="userName" th:field="${users.userName}" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">パスワード</label>
+          <input type="text" name="password" th:field="${users.password}" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">メールアドレス</label>
+          <input type="text" name="address" th:field="${users.address}" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">年齢</label>
+          <input type="text" name="age" th:field="${users.age}" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">部署ID</label>
+          <select name="departmentId" class="form-control" th:field="${users.departmentId}">
+            <option
+              th:each="item : ${departments}"
+              th:value="${item.departmentId}"
+              th:text="${item.departmentName}">
+            </option>
+          </select>
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">ポイント</label>
+          <input type="text" name="point" th:field="${users.point}" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">createdAt</label>
+          <input type="text" name="createdAt" th:field="${users.createdAt}" class="form-control">
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">updatedAt</label>
+          <input type="text" name="updatedAt" th:field="${users.updatedAt}" class="form-control">
+        </div>
+        <input type="submit" value="更新" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
 </body>
 </html>
