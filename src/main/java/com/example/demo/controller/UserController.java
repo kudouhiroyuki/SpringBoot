@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.validation.BindingResult;
 
 import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.entity.UserEntity;
@@ -51,7 +53,10 @@ public class UserController {
   }
   
   @PostMapping
-  public String store(UserEntity user) {
+  public String store(@Validated UserEntity user, BindingResult bindingResult) {
+    if (bindingResult.hasErrors()) {
+      return "users/create";
+    }
     userService.createUser(user);
     return "redirect:/users";
   }

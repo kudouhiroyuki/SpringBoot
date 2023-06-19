@@ -3,7 +3,7 @@
 <head th:replace="~{partials/head}"></head>
 
 <body>
-  <div th:insert="~{partials/header}"></div>
+  <header th:insert="~{partials/header}"></header>
 
   <div class="container">
     <div th:if="${validationError}" th:each="error : ${validationError}">

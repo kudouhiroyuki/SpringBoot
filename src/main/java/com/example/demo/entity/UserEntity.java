@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.sql.Date;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class UserEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
   
+  @NotEmpty
   @Column(name = "user_name", nullable = false, length = 191)
   private String userName;
   
