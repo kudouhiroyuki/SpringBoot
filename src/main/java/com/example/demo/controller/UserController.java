@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.BindingResult;
 
 import com.example.demo.entity.DepartmentEntity;
@@ -37,7 +40,9 @@ public class UserController {
   }
   
   @GetMapping("/create")
-  public String create(Model model) {  
+  public String create(Model model, UserEntity user) {  
+//	  UserEntity user = new UserEntity();
+//      model.addAttribute("user", user);
     List<DepartmentEntity> departments = departmentService.findUserAll();
     model.addAttribute("departments", departments);
     return "users/create";
@@ -53,8 +58,15 @@ public class UserController {
   }
   
   @PostMapping
-  public String store(@Validated UserEntity user, BindingResult bindingResult) {
+  public String store(@Validated UserEntity user, BindingResult bindingResult, Model model) {
     if (bindingResult.hasErrors()) {
+      List<String> errorList = new ArrayList<String>();
+      for (ObjectError error : bindingResult.getAllErrors()) {
+        errorList.add(error.getDefaultMessage());
+      }
+      List<DepartmentEntity> departments = departmentService.findUserAll();
+      model.addAttribute("departments", departments);
+      model.addAttribute("validationError", errorList);
       return "users/create";
     }
     userService.createUser(user);

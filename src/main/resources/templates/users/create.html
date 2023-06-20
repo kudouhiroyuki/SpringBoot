@@ -6,15 +6,15 @@
   <div th:insert="~{partials/header}"></div>
 
   <div class="container">
-    <div th:if="${validationError}" th:each="error : ${validationError}">
+    <h1>登録画面</h1>
+    <div th:if="${validationError}" th:each="error : ${validationError}" class="mb-3">
       <label class="text-danger" th:text="${error}"></label>
     </div>
-    <h1>登録画面</h1>
     <form th:method="post" th:action="@{/users}">
       <div class="row">
         <div class="col-12 mb-3">
           <label for="userName" class="form-label">名前</label>
-          <input type="text" name="userName" value="name99" class="form-control">
+          <input type="text" name="userName" class="form-control">
         </div>
         <div class="col-12 mb-3">
           <label for="password" class="form-label">パスワード</label>

@@ -21,7 +21,7 @@ public class UserEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
   
-  @NotEmpty
+  @NotEmpty(message = "名前を入力してください")
   @Column(name = "user_name", nullable = false, length = 191)
   private String userName;
   
