@@ -7,14 +7,12 @@
 
   <div class="container">
     <h1>登録画面</h1>
-    <div th:if="${validationError}" th:each="error : ${validationError}" class="mb-3">
-      <label class="text-danger" th:text="${error}"></label>
-    </div>
-    <form th:method="post" th:action="@{/users}">
+    <form th:method="post" th:action="@{/users}" th:object="${userCreateRequestDto}">
       <div class="row">
         <div class="col-12 mb-3">
           <label for="userName" class="form-label">名前</label>
-          <input type="text" name="userName" class="form-control">
+          <input type="text" th:field="*{userName}" class="form-control mb-2">
+          <span class="text-danger" th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}"></span>
         </div>
         <div class="col-12 mb-3">
           <label for="password" class="form-label">パスワード</label>

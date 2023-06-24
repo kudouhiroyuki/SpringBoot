@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.validation.ObjectError;
 import org.springframework.validation.BindingResult;
 
 import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 import com.example.demo.service.DepartmentService;
+import com.example.demo.dto.request.UserCreateRequestDto;
 
 @Controller
 @RequestMapping("/users") 
@@ -40,10 +40,9 @@ public class UserController {
   }
   
   @GetMapping("/create")
-  public String create(Model model, UserEntity user) {  
-//	  UserEntity user = new UserEntity();
-//      model.addAttribute("user", user);
+  public String create(Model model) {
     List<DepartmentEntity> departments = departmentService.findUserAll();
+    model.addAttribute("userCreateRequestDto", new UserCreateRequestDto());
     model.addAttribute("departments", departments);
     return "users/create";
   }
@@ -56,20 +55,15 @@ public class UserController {
 	model.addAttribute("departments", departments);
     return "users/edit";
   }
-  
+
   @PostMapping
-  public String store(@Validated UserEntity user, BindingResult bindingResult, Model model) {
+  public String store(@Validated @ModelAttribute UserCreateRequestDto userCreateRequestDto, BindingResult bindingResult, Model model) {
     if (bindingResult.hasErrors()) {
-      List<String> errorList = new ArrayList<String>();
-      for (ObjectError error : bindingResult.getAllErrors()) {
-        errorList.add(error.getDefaultMessage());
-      }
       List<DepartmentEntity> departments = departmentService.findUserAll();
       model.addAttribute("departments", departments);
-      model.addAttribute("validationError", errorList);
       return "users/create";
     }
-    userService.createUser(user);
+    userService.createUser(userCreateRequestDto);
     return "redirect:/users";
   }
   
