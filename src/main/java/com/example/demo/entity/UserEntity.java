@@ -13,16 +13,16 @@ import jakarta.validation.constraints.NotEmpty;
 import java.sql.Date;
 import lombok.Data;
 
-@Data
 @Entity
+@Data
 @Table(name = "user")
 public class UserEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
   
-  @Column(name = "user_name", nullable = false, length = 191)
   @NotEmpty(message = "名前を入力してください")
+  @Column(name = "user_name", nullable = false, length = 191)
   private String userName;
   
   @Column(name = "password", nullable = false, length = 191)

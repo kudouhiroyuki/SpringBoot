@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.entity.UserEntity;
-import com.example.demo.dto.request.UserCreateRequestDto;
 import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.DepartmentRepository;
@@ -29,18 +28,9 @@ public class UserService {
     return userRepository.findById(id);
   }
   
-  public void createUser(UserCreateRequestDto userCreateRequestDto) {
-    DepartmentEntity department = departmentRepository.findByDepartmentIdIs(userCreateRequestDto.getDepartmentId());
-    UserEntity user = new UserEntity();
-    user.setUserName(userCreateRequestDto.getUserName());
-    user.setPassword(userCreateRequestDto.getPassword());
-    user.setAddress(userCreateRequestDto.getAddress());
-    user.setAge(userCreateRequestDto.getAge());
+  public void createUser(UserEntity user) {
+    DepartmentEntity department = departmentRepository.findByDepartmentIdIs(user.getDepartmentId());
     user.setDepartment(department);
-    user.setDepartmentId(userCreateRequestDto.getDepartmentId());
-    user.setPoint(userCreateRequestDto.getPoint());
-    user.setCreatedAt(userCreateRequestDto.getCreatedAt());
-    user.setUpdatedAt(userCreateRequestDto.getUpdatedAt());
     userRepository.save(user);
   }
   

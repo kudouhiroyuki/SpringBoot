@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
@@ -21,7 +20,6 @@ import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.entity.UserEntity;
 import com.example.demo.service.UserService;
 import com.example.demo.service.DepartmentService;
-import com.example.demo.dto.request.UserCreateRequestDto;
 
 @Controller
 @RequestMapping("/users") 
@@ -42,7 +40,7 @@ public class UserController {
   @GetMapping("/create")
   public String create(Model model) {
     List<DepartmentEntity> departments = departmentService.findUserAll();
-    model.addAttribute("userCreateRequestDto", new UserCreateRequestDto());
+    model.addAttribute("userEntity", new UserEntity());
     model.addAttribute("departments", departments);
     return "users/create";
   }
@@ -57,13 +55,13 @@ public class UserController {
   }
 
   @PostMapping
-  public String store(@Validated @ModelAttribute UserCreateRequestDto userCreateRequestDto, BindingResult bindingResult, Model model) {
+  public String store(@Validated @ModelAttribute UserEntity user, BindingResult bindingResult, Model model) {
     if (bindingResult.hasErrors()) {
       List<DepartmentEntity> departments = departmentService.findUserAll();
       model.addAttribute("departments", departments);
       return "users/create";
     }
-    userService.createUser(userCreateRequestDto);
+    userService.createUser(user);
     return "redirect:/users";
   }
   
