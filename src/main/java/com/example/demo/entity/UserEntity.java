@@ -9,6 +9,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Max;
 
 import java.sql.Date;
 import lombok.Data;
@@ -25,6 +26,7 @@ public class UserEntity {
   @Column(name = "user_name", nullable = false, length = 191)
   private String userName;
   
+  @NotEmpty(message = "パスワードを入力してください")
   @Column(name = "password", nullable = false, length = 191)
   private String password;
   

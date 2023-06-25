@@ -6,19 +6,17 @@
   <header th:insert="~{partials/header}"></header>
 
   <div class="container">
-    <div th:if="${validationError}" th:each="error : ${validationError}">
-      <label class="text-danger" th:text="${error}"></label>
-    </div>
-    <h1>詳細画面</h1>
-    <form th:method="post" th:action="@{/users}">
+    <h1>詳細画面</h1> 
+    <form th:method="put" th:action="@{/users/{id}(id=${users.id}}" th:object="${userEntity}">
       <div class="row">
         <div class="col-12 mb-3">
           <label class="form-label">id</label>
-          <input type="text" name="id" th:field="${users.id}" class="form-control">
+          <input type="text" th:field="${users.id}" class="form-control" readonly>
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">名前</label>
           <input type="text" name="userName" th:field="${users.userName}" class="form-control">
+          
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">パスワード</label>

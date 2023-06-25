@@ -16,7 +16,8 @@
         </div>
         <div class="col-12 mb-3">
           <label for="password" class="form-label">パスワード</label>
-          <input type="text" name="password" value="password" class="form-control">
+          <input type="text" th:field="*{password}" class="form-control">
+          <span class="text-danger" th:errors="*{password}"></span>
         </div>
         <div class="col-12 mb-3">
           <label for="address" class="form-label">メールアドレス</label>
