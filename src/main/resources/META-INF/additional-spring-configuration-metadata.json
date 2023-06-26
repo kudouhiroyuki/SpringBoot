@@ -1,0 +1,52 @@
+{"properties": [
+  {
+    "name": "datasource",
+    "type": "java.lang.String",
+    "description": "A description for 'datasource'"
+  },
+  {
+    "name": "url",
+    "type": "java.lang.String",
+    "description": "A description for 'url'"
+  },
+  {
+    "name": "username",
+    "type": "java.lang.String",
+    "description": "A description for 'username'"
+  },
+  {
+    "name": "password",
+    "type": "java.lang.String",
+    "description": "A description for 'password'"
+  },
+  {
+    "name": "driver-class-name",
+    "type": "java.lang.String",
+    "description": "A description for 'driver-class-name'"
+  },
+  {
+    "name": "mvc",
+    "type": "java.lang.String",
+    "description": "A description for 'mvc'"
+  },
+  {
+    "name": "hiddenmethod",
+    "type": "java.lang.String",
+    "description": "A description for 'hiddenmethod'"
+  },
+  {
+    "name": "filter",
+    "type": "java.lang.String",
+    "description": "A description for 'filter'"
+  },
+  {
+    "name": "enabled",
+    "type": "java.lang.String",
+    "description": "A description for 'enabled'"
+  },
+  {
+    "name": "flyway",
+    "type": "java.lang.String",
+    "description": "A description for 'flyway'"
+  }
+]}

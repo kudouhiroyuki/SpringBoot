@@ -10,12 +10,18 @@
     <form th:method="post" th:action="@{/users}" th:object="${userEntity}">
       <div class="row">
         <div class="col-12 mb-3">
-          <label for="userName" class="form-label">名前</label>
+          <label for="userName" class="form-label">
+			名前
+		    <span class="badge bg-danger">必須</span>
+		  </label>
           <input type="text" th:field="*{userName}" class="form-control mb-2">
           <span class="text-danger" th:errors="*{userName}"></span>
         </div>
         <div class="col-12 mb-3">
-          <label for="password" class="form-label">パスワード</label>
+          <label for="password" class="form-label">
+	        パスワード
+	        <span class="badge bg-danger">必須</span>
+		  </label>
           <input type="text" th:field="*{password}" class="form-control">
           <span class="text-danger" th:errors="*{password}"></span>
         </div>
