@@ -49,8 +49,7 @@ public class UserController {
   public String edit(@PathVariable int id, Model model) {
     Optional<UserEntity> users = userService.findUserById(id);
     List<DepartmentEntity> departments = departmentService.findUserAll();
-    model.addAttribute("userEntity", new UserEntity());
-	model.addAttribute("users", users);
+	model.addAttribute("userEntity", users);
 	model.addAttribute("departments", departments);
     return "users/edit";
   }

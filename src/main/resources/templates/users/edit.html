@@ -7,32 +7,33 @@
 
   <div class="container">
     <h1>詳細画面</h1> 
-    <form th:method="put" th:action="@{/users/{id}(id=${users.id}}" th:object="${userEntity}">
+    <form th:method="put" th:action="@{/users/{id}(id=${userEntity.id}}" th:object="${userEntity}">
       <div class="row">
         <div class="col-12 mb-3">
           <label class="form-label">id</label>
-          <input type="text" th:field="${users.id}" class="form-control" readonly>
+          <input type="text" th:field="${userEntity.id}" class="form-control" readonly>
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">名前</label>
-          <input type="text" name="userName" th:field="${users.userName}" class="form-control">
-          
+          <input type="text" th:field="${userEntity.userName}" class="form-control">
+          <span class="text-danger" th:errors="*{userName}"></span>
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">パスワード</label>
-          <input type="text" name="password" th:field="${users.password}" class="form-control">
+          <input type="text" name="password" th:field="${userEntity.password}" class="form-control">
+          <span class="text-danger" th:errors="*{password}"></span>
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">メールアドレス</label>
-          <input type="text" name="address" th:field="${users.address}" class="form-control">
+          <input type="text" name="address" th:field="${userEntity.address}" class="form-control">
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">年齢</label>
-          <input type="text" name="age" th:field="${users.age}" class="form-control">
+          <input type="text" name="age" th:field="${userEntity.age}" class="form-control">
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">部署ID</label>
-          <select name="departmentId" class="form-control" th:field="${users.departmentId}">
+          <select name="departmentId" class="form-control" th:field="${userEntity.departmentId}">
             <option
               th:each="item : ${departments}"
               th:value="${item.departmentId}"
@@ -42,15 +43,15 @@
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">ポイント</label>
-          <input type="text" name="point" th:field="${users.point}" class="form-control">
+          <input type="text" name="point" th:field="${userEntity.point}" class="form-control">
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">createdAt</label>
-          <input type="text" name="createdAt" th:field="${users.createdAt}" class="form-control">
+          <input type="text" name="createdAt" th:field="${userEntity.createdAt}" class="form-control">
         </div>
         <div class="col-12 mb-3">
           <label class="form-label">updatedAt</label>
-          <input type="text" name="updatedAt" th:field="${users.updatedAt}" class="form-control">
+          <input type="text" name="updatedAt" th:field="${userEntity.updatedAt}" class="form-control">
         </div>
         <input type="submit" value="更新" class="btn btn-primary">
       </div>
