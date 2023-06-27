@@ -5,7 +5,7 @@ Gradle<br>
 Thymeleaf<br>
 Spring Tool Suite4<br>
 lombok<br>
-Flyway<br>
+Flyway(マイグレーション)<br>
 
 ■設定<br>
 「Web」→「Spring Web（WEBアプリを構築するためのスターター）」<br>
