@@ -1,9 +1,3 @@
-CREATE TABLE department (
-  department_id VARCHAR(191) NOT NULL,
-  department_name VARCHAR(191) NOT NULL,
-  PRIMARY KEY (department_id)
-);
-
 CREATE TABLE user (
   id INT AUTO_INCREMENT,
   user_name VARCHAR(191) NOT NULL,
