@@ -14,6 +14,6 @@ public class DepartmentEntity {
   @Id
   private String departmentId;
   
-  @Column(name = "department_name", nullable = false, length = 191) 
+  @Column(name = "department_name", nullable = false, length = 30) 
   private String departmentName;
 }

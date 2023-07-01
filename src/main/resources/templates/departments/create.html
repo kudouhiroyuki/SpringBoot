@@ -7,8 +7,8 @@
   
   <h1>登録画面</h1>
   <form th:method="post" th:action="@{/departments}">
-    <input type="text" name="departmentId" value="C0001">
-    <input type="text" name="departmentName" value="経理">
+    <input type="text" name="departmentId" maxlength="30">
+    <input type="text" name="departmentName" maxlength="30">
     <input type="submit" value="登録">
   </form>
 </body>

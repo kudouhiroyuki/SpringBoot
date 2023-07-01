@@ -9,7 +9,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Max;
 
 import java.sql.Date;
 import lombok.Data;
