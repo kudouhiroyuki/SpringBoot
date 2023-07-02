@@ -11,23 +11,27 @@
       <div class="row">
         <div class="col-12 mb-3">
           <label for="userName" class="form-label">
-			名前
-		    <span class="badge bg-danger">必須</span>
-		  </label>
+            名前
+            <span class="badge bg-danger">必須</span>
+		      </label>
           <input type="text" th:field="*{userName}" class="form-control mb-2">
           <span class="text-danger" th:errors="*{userName}"></span>
         </div>
         <div class="col-12 mb-3">
           <label for="password" class="form-label">
-	        パスワード
-	        <span class="badge bg-danger">必須</span>
-		  </label>
+            パスワード
+            <span class="badge bg-danger">必須</span>
+          </label>
           <input type="text" th:field="*{password}" class="form-control">
           <span class="text-danger" th:errors="*{password}"></span>
         </div>
         <div class="col-12 mb-3">
-          <label for="address" class="form-label">メールアドレス</label>
-          <input type="text" name="address" value="address" class="form-control">
+          <label for="address" class="form-label">
+            メールアドレス
+            <span class="badge bg-danger">必須</span>
+          </label>
+          <input type="text" th:field="*{address}" class="form-control">
+          <span class="text-danger" th:errors="*{address}"></span>
         </div>
         <div class="col-12 mb-3">
           <label for="age" class="form-label">年齢</label>

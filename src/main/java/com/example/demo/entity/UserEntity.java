@@ -9,6 +9,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 
 import java.sql.Date;
 import lombok.Data;
@@ -22,13 +24,16 @@ public class UserEntity {
   int id;
   
   @NotEmpty(message = "名前を入力してください")
-  @Column(name = "user_name", nullable = false, length = 191)
+  @Column(name = "user_name", nullable = false, length = 60)
+  @Size(min = 1, max = 60, message = "名前は60文字以内で入力してください")
   private String userName;
   
   @NotEmpty(message = "パスワードを入力してください")
-  @Column(name = "password", nullable = false, length = 191)
+  @Column(name = "password", nullable = false, length = 255)
   private String password;
   
+  @NotEmpty(message = "メールアドレスを入力してください")
+  @Email(message = "メールアドレスを正しく入力してください")
   @Column(name = "address", nullable = false, length = 191)
   private String address;
   
