@@ -34,18 +34,26 @@
           <span class="text-danger" th:errors="*{address}"></span>
         </div>
         <div class="col-12 mb-3">
-          <label for="age" class="form-label">年齢</label>
-          <input type="text" name="age" value="30" class="form-control">
+          <label for="address" class="form-label">
+            年齢
+            <span class="badge bg-danger">必須</span>
+          </label>
+          <input type="text" th:field="*{age}" class="form-control">
+          <span class="text-danger" th:errors="*{age}"></span>
         </div>
         <div class="col-12 mb-3">
-          <label for="department_id" class="form-label">部署</label>
-          <select name="departmentId" class="form-control">
+          <label for="address" class="form-label">
+            部署
+            <span class="badge bg-danger">必須</span>
+          </label>
+          <select th:field="*{departmentId}" class="form-control">
             <option
               th:each="item : ${departments}"
               th:value="${item.departmentId}"
               th:text="${item.departmentName}">
             </option>
           </select>
+          <span class="text-danger" th:errors="*{departmentId}"></span>
         </div>
         <div class="col-12 mb-3">
           <label for="point" class="form-label">ポイント</label>
