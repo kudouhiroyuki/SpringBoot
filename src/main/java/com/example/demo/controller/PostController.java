@@ -16,12 +16,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.validation.BindingResult;
 
+import com.example.demo.entity.PostEntity;
+import com.example.demo.service.PostService;
+
 @Controller
 @RequestMapping("/posts") 
 public class PostController {
 
+  @Autowired
+  private PostService postService;
+
   @GetMapping
   public String index(Model model) {
+    List<PostEntity> posts = postService.findPostAll();
+    model.addAttribute("posts", posts);
     return "posts/index";
   }
 }

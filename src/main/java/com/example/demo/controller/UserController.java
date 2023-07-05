@@ -16,20 +16,20 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.validation.BindingResult;
 
-import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.entity.UserEntity;
+import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.service.UserService;
 import com.example.demo.service.DepartmentService;
 
 @Controller
 @RequestMapping("/users") 
 public class UserController {
-	
+  
   @Autowired
   private UserService userService;
   @Autowired
   private DepartmentService departmentService;
-	
+  
   @GetMapping
   public String index(Model model) {
     List<UserEntity> users = userService.findUserAll();
@@ -49,8 +49,8 @@ public class UserController {
   public String edit(@PathVariable int id, Model model) {
     Optional<UserEntity> users = userService.findUserById(id);
     List<DepartmentEntity> departments = departmentService.findUserAll();
-	model.addAttribute("userEntity", users);
-	model.addAttribute("departments", departments);
+  model.addAttribute("userEntity", users);
+  model.addAttribute("departments", departments);
     return "users/edit";
   }
 
@@ -67,11 +67,11 @@ public class UserController {
   
   @PutMapping("/{id}")
   public String update(@Validated @ModelAttribute UserEntity user, BindingResult bindingResult, Model model) {
-	if (bindingResult.hasErrors()) {
-	  List<DepartmentEntity> departments = departmentService.findUserAll();
-	  model.addAttribute("departments", departments);
-	  return "users/edit";
-	}
+  if (bindingResult.hasErrors()) {
+    List<DepartmentEntity> departments = departmentService.findUserAll();
+    model.addAttribute("departments", departments);
+    return "users/edit";
+  }
     userService.updateUser(user);
     return "redirect:/users";
   }

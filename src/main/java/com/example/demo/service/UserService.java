@@ -13,13 +13,13 @@ import com.example.demo.repository.DepartmentRepository;
 
 @Service
 public class UserService {
-	
+  
   @Autowired
   private UserRepository userRepository;
   
   @Autowired
   private DepartmentRepository departmentRepository;
-	
+  
   public List<UserEntity> findUserAll() {
     return userRepository.findAll();
   }
@@ -36,8 +36,8 @@ public class UserService {
   
   public void updateUser(UserEntity user) {
     DepartmentEntity department = departmentRepository.findByDepartmentIdIs(user.getDepartmentId());
-	user.setDepartment(department);  
-	user.setId(user.getId());
+    user.setDepartment(department);  
+    user.setId(user.getId());
     userRepository.save(user);
   }
   
