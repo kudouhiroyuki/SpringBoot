@@ -5,11 +5,29 @@
 <body>
   <div th:replace="~{partials/header}"></div>
   
-  <h1>登録画面</h1>
-  <form th:method="post" th:action="@{/departments}">
-    <input type="text" name="departmentId" maxlength="30">
-    <input type="text" name="departmentName" maxlength="30">
-    <input type="submit" value="登録">
-  </form>
+  <div class="container">
+    <h1>登録画面</h1>
+    <form th:method="post" th:action="@{/departments}" th:object="${departmentEntity}">
+      <div class="row">
+        <div class="col-12 mb-3">
+          <labelå class="form-label">
+            部署ID	
+            <span class="badge bg-danger">必須</span>
+		      </label>
+          <input type="text" th:field="*{departmentId}" class="form-control mb-2">
+          <span class="text-danger" th:errors="*{departmentId}"></span>
+        </div>
+        <div class="col-12 mb-3">
+          <label class="form-label">
+            部署名	
+            <span class="badge bg-danger">必須</span>
+		      </label>
+          <input type="text" th:field="*{departmentName}" class="form-control mb-2">
+          <span class="text-danger" th:errors="*{departmentName}"></span>
+        </div>
+        <input type="submit" value="登録" class="btn btn-primary">
+      </div>
+    </form>
+  </div>
 </body>
 </html>

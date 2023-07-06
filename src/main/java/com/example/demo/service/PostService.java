@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.example.demo.entity.PostEntity;
-import com.example.demo.entity.DepartmentEntity;
 import com.example.demo.repository.PostRepository;
-import com.example.demo.repository.DepartmentRepository;
 
 @Service
 public class PostService {

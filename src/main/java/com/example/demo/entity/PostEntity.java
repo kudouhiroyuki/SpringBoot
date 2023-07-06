@@ -24,8 +24,8 @@ public class PostEntity {
   @Id
   @NotEmpty(message = "IDを入力してください")
   @Size(min = 1, max = 30, message = "IDは30文字以内で入力してください")
-  @Column(name = "post_id", nullable = false, length = 30)
-  private String postId;
+  @Column(name = "id", nullable = false, length = 30)
+  private String id;
 
   @NotEmpty(message = "タイトルを入力してください")
   @Size(min = 1, max = 30, message = "タイトルは60文字以内で入力してください")

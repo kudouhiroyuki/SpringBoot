@@ -9,7 +9,7 @@ CREATE TABLE user (
   created_at DATETIME NOT NULL,
   updated_at DATETIME NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (department_id) REFERENCES department (department_id)
+  FOREIGN KEY (department_id) REFERENCES mst_department (department_id)
 );
 
 INSERT INTO spring.user (user_name, password, address, age, department_id, point, created_at, updated_at) VALUES

@@ -32,37 +32,3 @@ source ~/.zshrc<br>
 ③ファイル実行（/Applications/SpringToolSuite4.app/Contents/Eclipse/SpringToolSuite4.ini）<br>
 ④Install/Updateクリック<br>
 ⑤完了（-javaagent:/Applications/SpringToolSuite4.app/Contents/Eclipse/lombok.jar）<br>
-
-curl -X GET "http://localhost:8080"<br>
-
-■キーワード<br>
-Spring JPA<br>
-Entity（リレーション）<br>
-ORM(Object-Relational Mapping)<br>
-ユーザ認証<br>
-
-一意制約（ユニーク制約）<br>
-一意制約とは、リレーショナルデータベースでテーブルにデータを追加・更新する際の制約の一つ<br>
-その列の中でデータが一意（他と重複しない）でなければならないという制約。<br>
-
-■エンティティの関連付け<br>
-「User(FK/外部キー)・Department」<br>
-「ManyToOne・なし」（一方向）
-
-＠OneToMany(1対多)<br>
-＠OneToOne(1対1)<br>
-＠ManyToOne(多対1)<br>
-＠ManyToMany(多対多)<br>
-
-```
-import java.util.List;
-import java.util.ArrayList;
-
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.ManyToOne;
-
-DepartmentEntity department = new DepartmentEntity();
-department.setDepartmentId("C0001");
-department.setDepartmentName("人事");
-departmentRepository.save(department);
-```
