@@ -22,19 +22,16 @@ import lombok.Data;
 @Table(name = "comment")
 public class CommentEntity {
   @Id
-  @NotEmpty(message = "IDを入力してください")
-  @Size(min = 1, max = 30, message = "IDは30文字以内で入力してください")
-  @Column(name = "id", nullable = false, length = 30)
-  private String id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
 
   @ManyToOne
   @JoinColumn(name = "post_id")
   private PostEntity post;
 
   @NotEmpty(message = "投稿Idを入力してください")
-  @Size(min = 1, max = 30, message = "IDは30文字以内で入力してください")
   @Column(name = "post_id", nullable = false, length = 30, updatable = false, insertable = false)
-  private String postId;
+  private int postId;
 
   @NotEmpty(message = "本文を入力してください")
   @Size(min = 1, max = 255, message = "本文は255文字以内で入力してください")

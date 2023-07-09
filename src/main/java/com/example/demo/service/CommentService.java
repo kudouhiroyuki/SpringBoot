@@ -32,7 +32,7 @@ public class CommentService {
     commentRepository.save(comment);
   }
   
-  public void destroycomment(int id) {
+  public void destroyComment(int id) {
     commentRepository.deleteById(id);
   }
 }

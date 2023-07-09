@@ -32,4 +32,10 @@ public class PostController {
     model.addAttribute("posts", posts);
     return "posts/index";
   }
+
+  @DeleteMapping("/{id}")
+  public String destroy(@PathVariable int id) {
+    postService.destroyPost(id);
+    return "redirect:/posts";
+  }
 }

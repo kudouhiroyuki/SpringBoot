@@ -32,4 +32,10 @@ public class CommentController {
     model.addAttribute("comments", comments);
     return "comments/index";
   }
+
+  @DeleteMapping("/{id}")
+  public String destroy(@PathVariable int id) {
+    commentService.destroyComment(id);
+    return "redirect:/comments";
+  }
 }

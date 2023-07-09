@@ -22,10 +22,8 @@ import lombok.Data;
 @Table(name = "post")
 public class PostEntity {
   @Id
-  @NotEmpty(message = "IDを入力してください")
-  @Size(min = 1, max = 30, message = "IDは30文字以内で入力してください")
-  @Column(name = "id", nullable = false, length = 30)
-  private String id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  int id;
 
   @NotEmpty(message = "タイトルを入力してください")
   @Size(min = 1, max = 30, message = "タイトルは60文字以内で入力してください")
