@@ -27,9 +27,13 @@ public class CommentEntity {
   @Column(name = "id", nullable = false, length = 30)
   private String id;
 
+  @ManyToOne
+  @JoinColumn(name = "post_id")
+  private PostEntity post;
+
   @NotEmpty(message = "投稿Idを入力してください")
   @Size(min = 1, max = 30, message = "IDは30文字以内で入力してください")
-  @Column(name = "post_id", nullable = false, length = 30)
+  @Column(name = "post_id", nullable = false, length = 30, updatable = false, insertable = false)
   private String postId;
 
   @NotEmpty(message = "本文を入力してください")
