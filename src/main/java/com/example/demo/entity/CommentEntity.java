@@ -14,6 +14,9 @@ import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Pattern;
 
+import jakarta.persistence.CascadeType;
+
+
 import java.sql.Date;
 import lombok.Data;
 
@@ -25,7 +28,7 @@ public class CommentEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.REMOVE)
   @JoinColumn(name = "post_id")
   private PostEntity post;
 

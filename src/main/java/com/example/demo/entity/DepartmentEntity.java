@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "mst_department")
+@Table(name = "department")
 public class DepartmentEntity {
   @Id
   @NotEmpty(message = "部署IDを入力してください")

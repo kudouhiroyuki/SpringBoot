@@ -18,7 +18,8 @@
               <th>パスワード</th>
               <th>メールアドレス</th>
               <th>年齢</th>
-              <th>部署名</th>
+              <th>役職</th>
+              <th>部署</th>
               <th>ポイント</th>
             </tr>
           </thead>
@@ -29,6 +30,7 @@
               <td th:text="${item.password}"></td>
               <td th:text="${item.address}"></td>
               <td th:text="${item.age}"></td>
+              <td th:text="${item.department.departmentName}"></td>
               <td th:text="${item.department.departmentName}"></td>
               <td th:text="${item.point}"></td>
               <td>
