@@ -1,7 +1,7 @@
 CREATE TABLE designation (
-  id INT AUTO_INCREMENT,
+  designation_id INT AUTO_INCREMENT,
   designation_name VARCHAR(30) NOT NULL,
-  PRIMARY KEY (id)
+  PRIMARY KEY (designation_id)
 );
 
 INSERT INTO spring.designation (designation_name) VALUES

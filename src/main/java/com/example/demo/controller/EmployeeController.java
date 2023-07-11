@@ -16,69 +16,69 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.validation.BindingResult;
 
-import com.example.demo.entity.UserEntity;
+import com.example.demo.entity.EmployeeEntity;
 import com.example.demo.entity.DepartmentEntity;
-import com.example.demo.service.UserService;
+import com.example.demo.service.EmployeeService;
 import com.example.demo.service.DepartmentService;
 
 @Controller
-@RequestMapping("/users") 
-public class UserController {
+@RequestMapping("/employees") 
+public class EmployeeController {
   
   @Autowired
-  private UserService userService;
+  private EmployeeService employeeService;
   @Autowired
   private DepartmentService departmentService;
   
   @GetMapping
   public String index(Model model) {
-    List<UserEntity> users = userService.findUserAll();
-    model.addAttribute("users", users);
-    return "users/index";
+    List<EmployeeEntity> employees = employeeService.findEmployeeAll();
+    model.addAttribute("employees", employees);
+    return "employees/index";
   }
   
   @GetMapping("/create")
   public String create(Model model) {
-    List<DepartmentEntity> departments = departmentService.findUserAll();
-    model.addAttribute("userEntity", new UserEntity());
+    List<DepartmentEntity> departments = departmentService.findDepartmentAll();
+    model.addAttribute("employeeEntity", new EmployeeEntity());
     model.addAttribute("departments", departments);
-    return "users/create";
+    return "employees/create";
   }
   
   @GetMapping("/{id}")
   public String edit(@PathVariable int id, Model model) {
-    Optional<UserEntity> users = userService.findUserById(id);
-    List<DepartmentEntity> departments = departmentService.findUserAll();
-  model.addAttribute("userEntity", users);
-  model.addAttribute("departments", departments);
-    return "users/edit";
+    Optional<EmployeeEntity> employee = employeeService.findEmployeeById(id);
+    List<DepartmentEntity> departments = departmentService.findDepartmentAll();
+    model.addAttribute("employeeEntity", employee);
+    model.addAttribute("departments", departments);
+    return "employees/edit";
   }
 
   @PostMapping
-  public String store(@Validated @ModelAttribute UserEntity user, BindingResult bindingResult, Model model) {
+  public String store(@Validated @ModelAttribute EmployeeEntity employee, BindingResult bindingResult, Model model) {
     if (bindingResult.hasErrors()) {
-      List<DepartmentEntity> departments = departmentService.findUserAll();
+      List<DepartmentEntity> departments = departmentService.findDepartmentAll();
       model.addAttribute("departments", departments);
-      return "users/create";
+      return "employees/create";
     }
-    userService.createUser(user);
-    return "redirect:/users";
+    employeeService.createEmployee(employee);
+    return "redirect:/employees";
   }
   
   @PutMapping("/{id}")
-  public String update(@Validated @ModelAttribute UserEntity user, BindingResult bindingResult, Model model) {
+  public String update(@Validated @ModelAttribute EmployeeEntity employee, BindingResult bindingResult, Model model) {
   if (bindingResult.hasErrors()) {
-    List<DepartmentEntity> departments = departmentService.findUserAll();
+    List<DepartmentEntity> departments = departmentService.findDepartmentAll();
     model.addAttribute("departments", departments);
-    return "users/edit";
+    return "employees/edit";
   }
-    userService.updateUser(user);
-    return "redirect:/users";
+    employeeService.updateEmployee(employee);
+    return "redirect:/employees";
   }
   
   @DeleteMapping("/{id}")
   public String destroy(@PathVariable int id) {
-    userService.destroyUser(id);
-    return "redirect:/users";
+    employeeService.destroyEmployee(id);
+    return "redirect:/employees";
   }
 }

@@ -28,7 +28,7 @@ public class CommentEntity {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  @ManyToOne(cascade = CascadeType.REMOVE)
+  @ManyToOne
   @JoinColumn(name = "post_id")
   private PostEntity post;
 

@@ -8,5 +8,5 @@ import com.example.demo.entity.DepartmentEntity;
 @Repository
 public interface DepartmentRepository extends JpaRepository<DepartmentEntity,Integer>{
 	
- DepartmentEntity findByDepartmentIdIs(String departmentId);
+ DepartmentEntity findByDepartmentIdIs(int departmentId);
 }

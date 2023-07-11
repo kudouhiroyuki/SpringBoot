@@ -19,8 +19,8 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "user")
-public class UserEntity {
+@Table(name = "employee")
+public class EmployeeEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   int id;
@@ -54,7 +54,7 @@ public class UserEntity {
   
   @NotEmpty(message = "部署を入力してください")
   @Column(name = "department_id", nullable = false, length = 30, updatable = false, insertable = false)
-  private String departmentId;
+  private Integer departmentId;
   
   @Column(name = "point", nullable = false)
   private Integer point;

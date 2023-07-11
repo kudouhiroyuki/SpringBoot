@@ -24,7 +24,7 @@ public class DepartmentController {
 
   @GetMapping
   public String index(Model model) {	
-    List<DepartmentEntity> departments = departmentService.findUserAll();
+    List<DepartmentEntity> departments = departmentService.findDepartmentAll();
     model.addAttribute("departments", departments);
     return "departments/index";
   }

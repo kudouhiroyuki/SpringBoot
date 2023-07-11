@@ -6,8 +6,8 @@
   <div th:insert="~{partials/header}"></div>
 
   <div class="container">
-    <h1>登録画面</h1>
-    <form th:method="post" th:action="@{/users}" th:object="${userEntity}">
+    <h1>従業員(登録)</h1>
+    <form th:method="post" th:action="@{/employees}" th:object="${employeeEntity}">
       <div class="row">
         <div class="col-12 mb-3">
           <label for="userName" class="form-label">
