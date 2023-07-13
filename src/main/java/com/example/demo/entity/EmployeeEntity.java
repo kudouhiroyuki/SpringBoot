@@ -9,12 +9,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
 
 import java.sql.Date;
+import java.util.Optional;
+
 import lombok.Data;
 
 @Entity
@@ -23,7 +26,7 @@ import lombok.Data;
 public class EmployeeEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  int id;
+  private int id;
   
   @NotEmpty(message = "名前を入力してください")
   @Size(min = 1, max = 60, message = "名前は60文字以内で入力してください")
@@ -52,12 +55,12 @@ public class EmployeeEntity {
   @JoinColumn(name = "department_id")
   private DepartmentEntity department;
   
-  @NotEmpty(message = "部署を入力してください")
-  @Column(name = "department_id", nullable = false, length = 30, updatable = false, insertable = false)
-  private Integer departmentId;
+  @NotNull(message = "部署を選択してください")
+  @Column(name = "department_id", nullable = false, updatable = false, insertable = false)
+  private int departmentId;
   
   @Column(name = "point", nullable = false)
-  private Integer point;
+  private int point;
   
   @Column(name = "created_at", nullable = false)
   private Date createdAt;

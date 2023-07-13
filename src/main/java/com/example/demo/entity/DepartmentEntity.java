@@ -18,7 +18,8 @@ import lombok.Data;
 public class DepartmentEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  int department_id;
+  @Column(name = "department_id", nullable = false)
+  private int departmentId;
   
   @NotEmpty(message = "部署名を入力してください")
   @Size(min = 1, max = 30, message = "部署名は30文字以内で入力してください")

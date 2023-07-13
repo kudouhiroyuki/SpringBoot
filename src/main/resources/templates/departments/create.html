@@ -10,16 +10,8 @@
     <form th:method="post" th:action="@{/departments}" th:object="${departmentEntity}">
       <div class="row">
         <div class="col-12 mb-3">
-          <labelå class="form-label">
-            部署ID	
-            <span class="badge bg-danger">必須</span>
-		      </label>
-          <input type="text" th:field="*{id}" class="form-control mb-2">
-          <span class="text-danger" th:errors="*{id}"></span>
-        </div>
-        <div class="col-12 mb-3">
           <label class="form-label">
-            部署名	
+            部署名
             <span class="badge bg-danger">必須</span>
 		      </label>
           <input type="text" th:field="*{departmentName}" class="form-control mb-2">
