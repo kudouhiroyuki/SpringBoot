@@ -1,20 +1,14 @@
 package com.example.demo.controller;
 
 import org.springframework.web.bind.annotation.RestController;
-
-import com.example.demo.entity.CommentEntity;
-import com.example.demo.entity.PostEntity;
-
-import java.sql.Date;
-
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.Data;
 
 @Data
-class Test2Entity {
+class TestEntity {
   private String message;
 }
 
@@ -23,17 +17,30 @@ class Test2Entity {
 public class ApiController {
 
   @GetMapping("/test1")
-  public String getTest1(Model model) {
+  public String getTest1() {
     return "test1";
   }
+
+  @GetMapping("/test2")
+  public String getTest2(@RequestParam("message") String message) {
+    return message;
+  }
   
-  @GetMapping("test2")
-  public Test2Entity getTest2(Model model) {
-    Test2Entity result = new Test2Entity();
-    result.setMessage("test2");
+  @GetMapping("test3")
+  public TestEntity getTest3() {
+    TestEntity result = new TestEntity();
+    return result;
+  }
+  
+  @GetMapping("test4")
+  public TestEntity getTest4() {
+    TestEntity result = new TestEntity();
+    result.setMessage("test4");
     return result;
   }
 }
 
 // curl -v -X GET "http://localhost:8080/api/test1"
-// curl -v -X GET "http://localhost:8080/api/test2"
+// curl -v -X GET "http://localhost:8080/api/test2?message=test2"
+// curl -v -X GET "http://localhost:8080/api/test3"
+// curl -v -X GET "http://localhost:8080/api/test4"
