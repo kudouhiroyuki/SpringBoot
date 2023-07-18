@@ -12,7 +12,7 @@ import lombok.Data;
 
 @Data
 class TestRequest {
-  private String message;
+  private String param1;
 }
 @Data
 class TestEntity {
@@ -29,8 +29,8 @@ public class ApiController {
   }
 
   @GetMapping("/test2")
-  public String getTest2(@RequestParam("message") String message) {
-    return message;
+  public String getTest2(@RequestParam("param1") String param1) {
+    return param1;
   }
   
   @GetMapping("/test3")
@@ -68,8 +68,8 @@ public class ApiController {
 }
 
 // curl -v -X GET "http://localhost:8080/api/test1"
-// curl -v -X GET "http://localhost:8080/api/test2?message=test2"
-// curl -v -X GET "http://localhost:8080/api/test3?message=test3"
+// curl -v -X GET "http://localhost:8080/api/test2?param1=test2"
+// curl -v -X GET "http://localhost:8080/api/test3?param1=test3"
 // curl -v -X GET "http://localhost:8080/api/test4/1"
 // curl -v -X GET "http://localhost:8080/api/test5"
 // curl -v -X GET "http://localhost:8080/api/test6"
