@@ -1,14 +1,21 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-
 import lombok.Data;
+
+import com.example.demo.service.EmployeeService;
+import com.example.demo.entity.EmployeeEntity;
 
 @Data
 class TestRequest {
@@ -22,6 +29,8 @@ class TestEntity {
 @RestController
 @RequestMapping("/api") 
 public class ApiController {
+  @Autowired
+  private EmployeeService employeeService;
 
   @GetMapping("/test1")
   public String getTest1() {
@@ -65,6 +74,12 @@ public class ApiController {
   public void getError2() {
     throw new ResponseStatusException(HttpStatus.NOT_FOUND);
   }
+  
+  @GetMapping("employees")
+  public List<EmployeeEntity> getEmployeeAll() {
+    List<EmployeeEntity> employees = employeeService.findEmployeeAll();
+    return employees;
+  }
 }
 
 // curl -v -X GET "http://localhost:8080/api/test1"
@@ -73,5 +88,11 @@ public class ApiController {
 // curl -v -X GET "http://localhost:8080/api/test4/1"
 // curl -v -X GET "http://localhost:8080/api/test5"
 // curl -v -X GET "http://localhost:8080/api/test6"
+
 // curl -v -X GET "http://localhost:8080/api/error1"
 // curl -v -X GET "http://localhost:8080/api/error2"
+
+// curl -v -X GET "http://localhost:8080/api/employees"
+
+
+
