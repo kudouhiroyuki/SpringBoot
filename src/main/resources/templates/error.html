@@ -6,10 +6,14 @@
   <div class="container">
     <div class="row">
       <div class="col-10">
-        <p>
-          指定されたURLが見つかりませんでした。<br/>
-          指定されたURLのパスがコントローラクラスに存在するかどうか確認してください。
-        </p>
+        <div th:text="'timestamp: ' + ${timestamp}"></div>
+        <div th:text="'status: ' + ${status}"></div>
+        <div th:text="'error: ' + ${error}"></div>
+        <div th:text="'exception: ' + ${exception}"></div>
+        <div th:text="'message: ' + ${message}"></div>
+        <div th:text="'errors: ' + ${errors}"></div>
+        <div th:text="'trace: ' + ${trace}"></div>
+        <div th:text="'path: ' + ${path}"></div>
       </div>
     </div>
   </div>

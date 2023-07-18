@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import lombok.Data;
 
@@ -53,6 +55,16 @@ public class ApiController {
     result.setMessage("test6");
     return result;
   }
+  
+  @GetMapping("error1")
+  public void getError1() {
+    throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+  }
+  
+  @GetMapping("error2")
+  public void getError2() {
+    throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+  }
 }
 
 // curl -v -X GET "http://localhost:8080/api/test1"
@@ -61,3 +73,5 @@ public class ApiController {
 // curl -v -X GET "http://localhost:8080/api/test4/1"
 // curl -v -X GET "http://localhost:8080/api/test5"
 // curl -v -X GET "http://localhost:8080/api/test6"
+// curl -v -X GET "http://localhost:8080/api/error1"
+// curl -v -X GET "http://localhost:8080/api/error2"
