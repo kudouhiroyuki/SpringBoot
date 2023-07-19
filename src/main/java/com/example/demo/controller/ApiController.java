@@ -1,6 +1,8 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Date;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -107,6 +109,18 @@ public class ApiController {
     List<EmployeeEntity> employees = employeeService.findEmployeeAll();
     return employees;
   }
+  
+  @GetMapping("employees/{id}")
+  public Optional<EmployeeEntity> getEmployeeById(@PathVariable int id) {
+    Optional<EmployeeEntity> employee = employeeService.findEmployeeById(id);
+    return employee;
+  }
+  
+  @GetMapping("util_date")
+  public void util() {
+    Date date = new Date();
+    System.out.println(date);
+  }
 }
 
 // curl -v -X GET "http://localhost:8080/api/test1"
@@ -125,6 +139,9 @@ public class ApiController {
 // curl -v -X GET "http://localhost:8080/api/error4"
 
 // curl -v -X GET "http://localhost:8080/api/employees"
+// curl -v -X GET "http://localhost:8080/api/employees/1"
+
+// curl -v -X GET "http://localhost:8080/api/util_date"
 
 
 
