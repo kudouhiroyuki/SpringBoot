@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.List;
 import java.util.Optional;
 import java.util.Date;
+import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +13,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -35,6 +38,8 @@ class TestEntity {
 public class ApiController {
   @Autowired
   private EmployeeService employeeService;
+  
+  private RestTemplate restTemplate;
 
   @GetMapping("/test1")
   public String getTest1() {
@@ -116,10 +121,55 @@ public class ApiController {
     return employee;
   }
   
+  @GetMapping("address")
+  public void getAddress() {
+    String url = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=7830060";
+    RestTemplate restTemplate = new RestTemplate();
+    ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, null, String.class);
+    String body = response.getBody();
+    System.out.println(body);
+  }
+  
   @GetMapping("util_date")
   public void util() {
     Date date = new Date();
     System.out.println(date);
+  }
+  
+  @GetMapping("util_array_list")
+  public void arrayList() {
+    ArrayList<String> result1 = new ArrayList<String>();
+    result1.add("test1");
+    result1.add("test2");
+    System.out.println(result1);
+    System.out.println(result1.size());
+    System.out.println(result1.get(0));
+    System.out.println(result1.get(1));
+
+    ArrayList<Integer> result2 = new ArrayList<Integer>();
+    result2.add(1);
+    result2.add(2);
+    System.out.println(result2);
+    System.out.println(result2.size());
+    System.out.println(result2.get(0));
+    System.out.println(result2.get(1));
+    
+    ArrayList<String> result3 = new ArrayList<String>();
+    result3.add("test1");
+    result3.set(0, "test2");
+    System.out.println(result3);
+    
+    ArrayList<String> result4 = new ArrayList<String>();
+    result4.add("test1");
+    result4.remove(0);
+    System.out.println(result4);
+    
+    ArrayList<String> result5 = new ArrayList<String>();
+    result5.add("test1");
+    result5.add("test2");
+    result5.add("test3");
+    result5.clear();
+    System.out.println(result5);
   }
 }
 
@@ -141,7 +191,8 @@ public class ApiController {
 // curl -v -X GET "http://localhost:8080/api/employees"
 // curl -v -X GET "http://localhost:8080/api/employees/1"
 
+// curl -v -X GET "http://localhost:8080/api/address"
+
 // curl -v -X GET "http://localhost:8080/api/util_date"
-
-
+// curl -v -X GET "http://localhost:8080/api/util_array_list"
 
