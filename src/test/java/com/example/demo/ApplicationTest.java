@@ -8,14 +8,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.Assert.*;
 
-
-class Test2 {
-  public String result() {
+class Sample {
+  public String test2() {
     return "test2";
   }
-}
-class Test3 {
-  public String result(String text) {
+	
+  public String test3(String text) {
+    return text;
+  }
+
+  public String test4() {
+	String text = "test4";
     return text;
   }
 }
@@ -47,13 +50,19 @@ class ApplicationTests {
   
   @Test
   public void Test2() {
-    Test2 test2 = new Test2();
-    assertEquals(test2.result(), "test2");
+	Sample sample = new Sample();
+    assertEquals(sample.test2(), "test2");
   }
   
   @Test
   public void Test3() {
-    Test3 test3 = new Test3();
-    assertEquals(test3.result("test3"), "test3");
+	Sample sample = new Sample();
+    assertEquals(sample.test3("test3"), "test3");
+  }
+  
+  @Test
+  public void Test4() {
+	Sample sample = new Sample();
+    assertEquals(sample.test4(), "test4");
   }
 }
