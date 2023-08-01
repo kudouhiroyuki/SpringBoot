@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -7,6 +10,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 class Sample {
   public String test2() {
@@ -45,7 +50,15 @@ class ApplicationTests {
   
   @Test
   public void Test1() {
-    assertEquals(12, 12);
+    int test1 = 1;
+    int test2 = test1 + 1;
+    int test3 = test1 - 1;
+    int test4 = test1 * 1;
+    assertEquals(test1, 1);
+    assertEquals(test2, 2);
+    assertEquals(test3, 0);
+    assertEquals(test4, 1);
+
   }
   
   @Test
