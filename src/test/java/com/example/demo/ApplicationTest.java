@@ -58,7 +58,27 @@ class ApplicationTests {
     assertEquals(test2, 2);
     assertEquals(test3, 0);
     assertEquals(test4, 1);
-
+    
+    int[] test5 = new int[3];
+    test5[0] = 1;
+    assertEquals(test5.length, 3);
+    assertEquals(test5[0], 1);
+    assertEquals(test5[1], 0);
+    assertEquals(test5[2], 0);
+    
+    int[] test6 = {1, 2, 3};
+    assertEquals(test6.length, 3);
+    assertEquals(test6[0], 1);
+    assertEquals(test6[1], 2);
+    assertEquals(test6[2], 3);
+    
+    String[] test7 = {"one", "two", "three"};
+    assertEquals(test7[0], "one");
+    
+    List<String> test8 = new ArrayList<>();
+    test8.add("one");
+    assertEquals(test8.size(), 1);
+    assertEquals(test8.get(0), "one");
   }
   
   @Test
