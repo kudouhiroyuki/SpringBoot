@@ -32,3 +32,5 @@ source ~/.zshrc<br>
 ③ファイル実行（/Applications/SpringToolSuite4.app/Contents/Eclipse/SpringToolSuite4.ini）<br>
 ④Install/Updateクリック<br>
 ⑤完了（-javaagent:/Applications/SpringToolSuite4.app/Contents/Eclipse/lombok.jar）<br>
+
+http://localhost:8080/employees<br>
