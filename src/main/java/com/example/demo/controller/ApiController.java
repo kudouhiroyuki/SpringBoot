@@ -24,6 +24,9 @@ import lombok.Data;
 import com.example.demo.service.EmployeeService;
 import com.example.demo.entity.EmployeeEntity;
 
+import com.example.demo.repository.NotificationRepository;
+import com.example.demo.entity.NotificationEntity;
+
 @Data
 class TestRequest {
   private String param1;
@@ -38,6 +41,9 @@ class TestEntity {
 public class ApiController {
   @Autowired
   private EmployeeService employeeService;
+
+  @Autowired
+  private NotificationRepository notificationRepository;
   
   private RestTemplate restTemplate;
 
@@ -120,6 +126,12 @@ public class ApiController {
     Optional<EmployeeEntity> employee = employeeService.findEmployeeById(id);
     return employee;
   }
+
+  @GetMapping("notifications")
+  public List<NotificationEntity> getNotificationAll() {
+    List<NotificationEntity> notifications = notificationRepository.findAll();;
+    return notifications;
+  }
   
   @GetMapping("address")
   public void getAddress() {
@@ -190,7 +202,7 @@ public class ApiController {
 
 // curl -v -X GET "http://localhost:8080/api/employees"
 // curl -v -X GET "http://localhost:8080/api/employees/1"
-
+// curl -v -X GET "http://localhost:8080/api/notifications"
 // curl -v -X GET "http://localhost:8080/api/address"
 
 // curl -v -X GET "http://localhost:8080/api/util_date"
