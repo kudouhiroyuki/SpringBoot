@@ -129,7 +129,7 @@ public class ApiController {
 
   @GetMapping("notifications")
   public List<NotificationEntity> getNotificationAll() {
-    List<NotificationEntity> notifications = notificationRepository.findAll();;
+    List<NotificationEntity> notifications = notificationRepository.findNotificationAll();;
     return notifications;
   }
   
