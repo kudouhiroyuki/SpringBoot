@@ -10,7 +10,8 @@ import com.example.demo.entity.NotificationEntity;
 
 @Repository
 public interface NotificationRepository extends JpaRepository<NotificationEntity,Integer>{
-
-  @Query(value = "SELECT * FROM notification", nativeQuery = true)
+  // SELECT * FROM spring.notification WHERE is_important = true;
+  // SELECT * FROM spring.notification WHERE is_important = false;
+  @Query(value = "SELECT * FROM notification WHERE is_important", nativeQuery = true)
   List<NotificationEntity> findNotificationAll();
 }

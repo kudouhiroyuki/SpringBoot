@@ -13,4 +13,5 @@ CREATE TABLE notification (
 );
 
 INSERT INTO spring.notification (derivery_started_at, derivery_ended_at, subject, body, is_important, created_employee_number, updated_employee_number, created_at, updated_at) VALUES
-('2023-08-01 00:00:00', '2023-12-01 00:00:00', '件名', '本文', true, 1, 1, '2010-10-01 00:00:00', '2010-10-01 00:00:00');
+('2023-08-01 00:00:00', '2023-12-01 00:00:00', '件名1', '本文', true, 1, 1, '2010-10-01 00:00:00', '2010-10-01 00:00:00'),
+('2023-08-01 00:00:00', '2023-12-01 00:00:00', '件名2', '本文', false, 1, 1, '2010-10-01 00:00:00', '2010-10-01 00:00:00');
