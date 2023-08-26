@@ -22,6 +22,9 @@ import org.springframework.http.ResponseEntity;
 import lombok.Data;
 
 import com.example.demo.service.EmployeeService;
+
+import jakarta.websocket.server.PathParam;
+
 import com.example.demo.entity.EmployeeEntity;
 
 import com.example.demo.repository.NotificationRepository;
@@ -127,9 +130,9 @@ public class ApiController {
     return employee;
   }
 
-  @GetMapping("notifications")
-  public List<NotificationEntity> getNotificationAll(@RequestParam("isImportant") boolean isImportant) {
-    List<NotificationEntity> notifications = notificationRepository.findNotificationByIsImportant(isImportant);
+  @GetMapping("notifications/{isImportant}")
+  public List<NotificationEntity> getNotifications(@PathVariable int isImportant) {
+    List<NotificationEntity> notifications = notificationRepository.findNotifications(isImportant, new Date());
     return notifications;
   }
   
@@ -202,8 +205,8 @@ public class ApiController {
 
 // curl -v -X GET "http://localhost:8080/api/employees"
 // curl -v -X GET "http://localhost:8080/api/employees/1"
-// curl -v -X GET "http://localhost:8080/api/notifications?isImportant=true"
-// curl -v -X GET "http://localhost:8080/api/notifications?isImportant=false"
+// curl -v -X GET "http://localhost:8080/api/notifications/0"
+// curl -v -X GET "http://localhost:8080/api/notifications/1"
 // curl -v -X GET "http://localhost:8080/api/address"
 
 // curl -v -X GET "http://localhost:8080/api/util_date"
