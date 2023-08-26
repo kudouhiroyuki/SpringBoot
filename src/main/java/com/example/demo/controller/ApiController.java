@@ -128,8 +128,8 @@ public class ApiController {
   }
 
   @GetMapping("notifications")
-  public List<NotificationEntity> getNotificationAll() {
-    List<NotificationEntity> notifications = notificationRepository.findNotificationAll();;
+  public List<NotificationEntity> getNotificationAll(@RequestParam("isImportant") boolean isImportant) {
+    List<NotificationEntity> notifications = notificationRepository.findNotificationByIsImportant(isImportant);
     return notifications;
   }
   
@@ -202,7 +202,8 @@ public class ApiController {
 
 // curl -v -X GET "http://localhost:8080/api/employees"
 // curl -v -X GET "http://localhost:8080/api/employees/1"
-// curl -v -X GET "http://localhost:8080/api/notifications"
+// curl -v -X GET "http://localhost:8080/api/notifications?isImportant=true"
+// curl -v -X GET "http://localhost:8080/api/notifications?isImportant=false"
 // curl -v -X GET "http://localhost:8080/api/address"
 
 // curl -v -X GET "http://localhost:8080/api/util_date"
