@@ -140,6 +140,9 @@ public class ApiController {
     int notificationsCount = notificationRepository.countNotifications(isImportant, new Date());
     return notificationsCount;
   }
+  @GetMapping("notifications/{id}")
+  public int getNotificaton(@PathVariable int id) {
+  }
   
   @GetMapping("address")
   public void getAddress() {
