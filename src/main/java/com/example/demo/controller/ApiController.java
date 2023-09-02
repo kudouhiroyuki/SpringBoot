@@ -130,18 +130,20 @@ public class ApiController {
     return employee;
   }
 
-  @GetMapping("notifications/{isImportant}")
+  @GetMapping("notifications/list/{isImportant}")
   public List<NotificationEntity> getNotifications(@PathVariable int isImportant) {
     List<NotificationEntity> notifications = notificationRepository.findNotifications(isImportant, new Date());
     return notifications;
   }
-  @GetMapping("notifications/{isImportant}/count")
+  @GetMapping("notifications/list/{isImportant}/count")
   public int getNotificationsCount(@PathVariable int isImportant) {
     int notificationsCount = notificationRepository.countNotifications(isImportant, new Date());
     return notificationsCount;
   }
   @GetMapping("notifications/{id}")
-  public int getNotificaton(@PathVariable int id) {
+  public Optional<NotificationEntity> getNotificaton(@PathVariable int id) {
+    Optional<NotificationEntity> notification = notificationRepository.findById(id);
+    return notification;
   }
   
   @GetMapping("address")
@@ -213,8 +215,13 @@ public class ApiController {
 
 // curl -v -X GET "http://localhost:8080/api/employees"
 // curl -v -X GET "http://localhost:8080/api/employees/1"
-// curl -v -X GET "http://localhost:8080/api/notifications/0"
+// curl -v -X GET "http://localhost:8080/api/notifications/list/0"
+// curl -v -X GET "http://localhost:8080/api/notifications/list/1"
+// curl -v -X GET "http://localhost:8080/api/notifications/list/0/count"
+// curl -v -X GET "http://localhost:8080/api/notifications/list/1/count"
 // curl -v -X GET "http://localhost:8080/api/notifications/1"
+// curl -v -X GET "http://localhost:8080/api/notifications/2"
+// curl -v -X GET "http://localhost:8080/api/notifications/3"
 // curl -v -X GET "http://localhost:8080/api/address"
 
 // curl -v -X GET "http://localhost:8080/api/util_date"
