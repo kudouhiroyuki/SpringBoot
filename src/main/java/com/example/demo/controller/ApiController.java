@@ -145,6 +145,11 @@ public class ApiController {
     Optional<NotificationEntity> notification = notificationRepository.findById(id);
     return notification;
   }
+  @GetMapping("notifications/findBySubjectEquals")
+  public List<NotificationEntity> findBySubjectEquals() {
+    List<NotificationEntity> notifications = notificationRepository.findBySubjectEquals("件名1");
+    return notifications;
+  }
   
   @GetMapping("address")
   public void getAddress() {
@@ -222,6 +227,7 @@ public class ApiController {
 // curl -v -X GET "http://localhost:8080/api/notifications/1"
 // curl -v -X GET "http://localhost:8080/api/notifications/2"
 // curl -v -X GET "http://localhost:8080/api/notifications/3"
+// curl -v -X GET "http://localhost:8080/api/notifications/findBySubjectEquals"
 // curl -v -X GET "http://localhost:8080/api/address"
 
 // curl -v -X GET "http://localhost:8080/api/util_date"

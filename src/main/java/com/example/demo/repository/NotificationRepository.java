@@ -25,4 +25,8 @@ public interface NotificationRepository extends JpaRepository<NotificationEntity
   // SELECT COUNT(*) FROM spring.notification WHERE is_important = true AND (NOW() BETWEEN derivery_started_at AND derivery_ended_at);
   @Query(value = "SELECT COUNT(*) FROM notification WHERE is_important = ?1 AND (?2 BETWEEN derivery_started_at AND derivery_ended_at)", nativeQuery = true)
   int countNotifications(int isImportant, Date dateTime);
+  
+  NotificationEntity findById(Long id);
+  
+  List<NotificationEntity> findBySubjectEquals(String subject);
 }
