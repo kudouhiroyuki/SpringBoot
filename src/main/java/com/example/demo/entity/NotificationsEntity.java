@@ -16,8 +16,8 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "notification")
-public class NotificationEntity {
+@Table(name = "notifications")
+public class NotificationsEntity {
   // 識別ID(お知らせID)
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
