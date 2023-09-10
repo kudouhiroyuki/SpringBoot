@@ -74,6 +74,11 @@ public class ApiController {
     Optional<AbbreviationsEntity> abbreviation = abbreviationRepository.findByDepartmentCode("dc1");
     return abbreviation;
   }
+  @GetMapping("abbreviations/departmentGroupCode")
+  public Optional<AbbreviationsEntity> findByDepartmentGroupCode() {
+    Optional<AbbreviationsEntity> abbreviation = abbreviationRepository.findByDepartmentGroupCode("dgc1");
+    return abbreviation;
+  }
   
   @GetMapping("address")
   public void getAddress() {
@@ -206,6 +211,7 @@ public class ApiController {
 // curl -v -X GET "http://localhost:8080/api/abbreviations/1"
 // curl -v -X GET "http://localhost:8080/api/abbreviations/2"
 // curl -v -X GET "http://localhost:8080/api/abbreviations/departmentCode"
+// curl -v -X GET "http://localhost:8080/api/abbreviations/departmentGroupCode"
 
 // curl -v -X GET "http://localhost:8080/api/address"
 

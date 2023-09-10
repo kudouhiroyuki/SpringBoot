@@ -12,4 +12,6 @@ public interface AbbreviationRepository extends JpaRepository<AbbreviationsEntit
   AbbreviationsEntity findById(Long id);
 
   Optional<AbbreviationsEntity> findByDepartmentCode(String departmentCode);
+  
+  Optional<AbbreviationsEntity> findByDepartmentGroupCode(String departmentGroupCode);
 }
