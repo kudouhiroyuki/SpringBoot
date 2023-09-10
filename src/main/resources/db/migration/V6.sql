@@ -21,11 +21,11 @@ CREATE TABLE abbreviations (
   id INT AUTO_INCREMENT,
   code VARCHAR(10) NOT NULL,
   name VARCHAR(255) NOT NULL,
-  departmentCode VARCHAR(6) NOT NULL,
-  departmentGroupCode VARCHAR(6) NOT NULL,
+  department_code VARCHAR(6) NOT NULL,
+  department_group_code VARCHAR(6) NOT NULL,
   PRIMARY KEY (id)
 );
 
-INSERT INTO spring.abbreviations (code, name, departmentCode, departmentGroupCode) VALUES
+INSERT INTO spring.abbreviations (code, name, department_code, department_group_code) VALUES
 ('c1', 'name', 'dc1', 'dgc1'),
 ('c2', 'name', 'dc2', 'dgc2');
