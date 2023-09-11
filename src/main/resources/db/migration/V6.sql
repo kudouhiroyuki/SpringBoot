@@ -11,7 +11,6 @@ CREATE TABLE notifications (
   updated_at DATETIME NOT NULL,
   PRIMARY KEY (id)
 );
-
 INSERT INTO spring.notifications (derivery_started_at, derivery_ended_at, subject, body, is_important, created_employee_number, updated_employee_number, created_at, updated_at) VALUES
 ('2023-08-01 00:00:00', '2023-12-01 00:00:00', '件名1', '本文', true, 1, 1, '2010-10-01 00:00:00', '2010-10-01 00:00:00'),
 ('2023-08-01 00:00:00', '2023-12-01 00:00:00', '件名2', '本文', false, 1, 1, '2010-10-01 00:00:00', '2010-10-01 00:00:00'),
@@ -25,7 +24,17 @@ CREATE TABLE abbreviations (
   department_group_code VARCHAR(6) NOT NULL,
   PRIMARY KEY (id)
 );
-
 INSERT INTO spring.abbreviations (code, name, department_code, department_group_code) VALUES
-('c1', 'name', 'dc1', 'dgc1'),
-('c2', 'name', 'dc2', 'dgc2');
+('abbre1', '略号名称', 'dep1', 'depGr1'),
+('abbre2', '略号名称', 'dep2', 'depGr2');
+
+CREATE TABLE parks (
+  id INT AUTO_INCREMENT,
+  code VARCHAR(10) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  is_deleted BOOLEAN NOT NULL,
+  PRIMARY KEY (id)
+);
+INSERT INTO spring.parks (code, name, is_deleted) VALUES
+('park1', 'パーク名', false),
+('park2', 'パーク名', false);

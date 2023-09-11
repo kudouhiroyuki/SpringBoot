@@ -32,11 +32,11 @@ public class NotificationsEntity {
   private Date deriveryEndedAt;
 
   // 件名
-  @Column(name = "subject", nullable = false, length = 50)
+  @Column(name = "subject", length = 50, nullable = false)
   private String subject;
 
   // 本文
-  @Column(name = "body", nullable = false, length = 50)
+  @Column(name = "body", length = 50, nullable = false)
   private String body;
 
   // 重要フラグ
