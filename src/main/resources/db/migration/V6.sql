@@ -37,4 +37,6 @@ CREATE TABLE parks (
 );
 INSERT INTO spring.parks (code, name, is_deleted) VALUES
 ('park1', 'パーク名', false),
-('park2', 'パーク名', false);
+('park2', 'パーク名', false),
+('park3', 'パーク名', false),
+('park4', 'パーク名', false);
