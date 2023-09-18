@@ -15,6 +15,7 @@ import com.example.demo.entity.ParksEntity;
 @RestController
 @RequestMapping("/parks") 
 public class ParkController {
+  // パークマスタテーブル用リポジトリ
   @Autowired
   private ParkRepository parkRepository;
 
@@ -27,17 +28,21 @@ public class ParkController {
     } else {
       parks = parkRepository.findAllByIdIn(ids);
     }
-    
     // 削除されていないものを抽出する。
     List<ParksEntity> parksResult = new ArrayList<>();
     for (ParksEntity park : parks) {
-      if (!park.getIsDeleted()) {
+      if (!park.isDeleted()) {
         parksResult.add(park);
       }
     }
-
     return parksResult;
   }
+  // curl -v -X GET "http://localhost:8080/parks?ids="
+  // curl -v -X GET "http://localhost:8080/parks?ids=1,2"
+  
+  @GetMapping("/areas")
+  public List<ParksEntity> getParksAreas(@RequestParam("park_id") List<Integer> parkIds) {
+    return null;
+  }
+  // curl -v -X GET "http://localhost:8080/parks/areas?park_id="
 }
-// curl -v -X GET "http://localhost:8080/parks?ids="
-// curl -v -X GET "http://localhost:8080/parks?ids=1,2"
