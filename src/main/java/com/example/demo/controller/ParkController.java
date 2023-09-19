@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.repository.ParkRepository;
+import com.example.demo.repository.ParkAreaRepository;
 import com.example.demo.entity.ParksEntity;
+import com.example.demo.entity.ParkAreasEntity;
 
 @RestController
 @RequestMapping("/parks") 
@@ -18,6 +20,10 @@ public class ParkController {
   // パークマスタテーブル用リポジトリ
   @Autowired
   private ParkRepository parkRepository;
+
+  // エリアマスタテーブル用リポジトリ
+  @Autowired
+  private ParkAreaRepository parkAreaRepository;
 
   /**
    * パーク一覧取得API(GET:/parks?id=XXX)
@@ -56,7 +62,7 @@ public class ParkController {
    * curl -v -X GET "http://localhost:8080/parks/areas?park_id="
    */
   @GetMapping("/areas")
-  public List<ParksEntity> getParksAreas(@RequestParam("park_id") List<Integer> parkIds) {
-    return null;
+  public List<ParkAreasEntity> getParksAreas(@RequestParam("park_id") List<Integer> parkIds) {
+    return parkAreaRepository.findAll();
   }
 }
