@@ -64,6 +64,7 @@ public class ParkController {
    */
   @GetMapping("/areas")
   public List<ParkAreasEntity> getParksAreas(@RequestParam("park_id") List<Integer> parkIds) {
+    // DBから対象のパークに紐づくエリアの一覧を取得する。
     List<ParkAreasEntity> areas = null;
     if (parkIds.size() == 0) {
       areas = parkAreaRepository.findAll();
