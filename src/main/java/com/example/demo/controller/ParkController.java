@@ -14,8 +14,10 @@ import com.example.demo.repository.ParkAreaRepository;
 import com.example.demo.entity.ParksEntity;
 import com.example.demo.entity.ParkAreasEntity;
 
+/**
+ * パーク関連の処理を行うコントローラー
+ */
 @RestController
-@RequestMapping("/parks") 
 public class ParkController {
   // パークマスタテーブル用リポジトリ
   @Autowired
@@ -34,7 +36,7 @@ public class ParkController {
    * curl -v -X GET "http://localhost:8080/parks?id="
    * curl -v -X GET "http://localhost:8080/parks?id=1,2"
    */
-  @GetMapping
+  @RequestMapping(value = "/parks")
   public List<ParksEntity> getParks(@RequestParam("id") List<Integer> ids) {
     // DBからパークの一覧を取得する。
     List<ParksEntity> parks = new ArrayList<>();
@@ -62,7 +64,7 @@ public class ParkController {
    * curl -v -X GET "http://localhost:8080/parks/areas?park_id="
    * curl -v -X GET "http://localhost:8080/parks/areas?park_id=1,2"
    */
-  @GetMapping("/areas")
+  @RequestMapping(value = "/parks/areas")
   public List<ParkAreasEntity> getParksAreas(@RequestParam("park_id") List<Integer> parkIds) {
     // DBから対象のパークに紐づくエリアの一覧を取得する。
     List<ParkAreasEntity> areas = null;
