@@ -60,9 +60,23 @@ public class ParkController {
    * 対象のパークIDに紐づく情報を取得します。
    * パークIDは複数設定することができ、取得できた情報を全て返却します。
    * curl -v -X GET "http://localhost:8080/parks/areas?park_id="
+   * curl -v -X GET "http://localhost:8080/parks/areas?park_id=1,2"
    */
   @GetMapping("/areas")
   public List<ParkAreasEntity> getParksAreas(@RequestParam("park_id") List<Integer> parkIds) {
-    return parkAreaRepository.findAll();
+    List<ParkAreasEntity> areas = null;
+    if (parkIds.size() == 0) {
+      areas = parkAreaRepository.findAll();
+    } else {
+      areas = parkAreaRepository.findByParkIdIn(parkIds);
+    }
+    // 削除されていないものを抽出する。
+    List<ParkAreasEntity> areasResult = new ArrayList<>();
+    for (ParkAreasEntity area : areas) {
+      if (!area.isDeleted()) {
+        areasResult.add(area);
+      }
+    }
+    return areasResult;
   }
 }
