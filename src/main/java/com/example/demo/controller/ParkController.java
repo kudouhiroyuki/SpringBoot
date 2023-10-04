@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.repository.ParkRepository;
 import com.example.demo.repository.ParkAreaRepository;
+import com.example.demo.repository.AreaComplexRepository;
 import com.example.demo.entity.ParksEntity;
 import com.example.demo.entity.ParksAreasEntity;
 import com.example.demo.entity.AreasComplexesEntity;
@@ -22,6 +23,9 @@ public class ParkController {
 
   @Autowired
   private ParkAreaRepository parkAreaRepository;
+
+  @Autowired
+  private AreaComplexRepository areaComplexRepository;
 
   /**
    * パーク一覧取得API(GET:/parks?id=XXX)
@@ -78,6 +82,20 @@ public class ParkController {
    */
   @RequestMapping(value = "/areas/complexes")
   public List<AreasComplexesEntity> getAreasComplexes(@RequestParam("area_id") List<Integer> areaIds) {
-    return null;
+    // DBから対象のエリアに紐づくコンプレックスの一覧を取得する。
+    List<AreasComplexesEntity> complexes = null;
+    if (areaIds.size() == 0) {
+      complexes = areaComplexRepository.findAll();
+    } else {
+      complexes = areaComplexRepository.findByParkAreaIdIn(areaIds);
+    }
+    // 削除されていないものを抽出する。
+    List<AreasComplexesEntity> complexesResult = new ArrayList<>();
+    for (AreasComplexesEntity complexe : complexes) {
+      if (!complexe.isDeleted()) {
+        complexesResult.add(complexe);
+      }
+    }
+    return complexesResult;
   }
 }
