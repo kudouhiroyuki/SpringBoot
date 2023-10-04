@@ -14,9 +14,6 @@ import jakarta.validation.constraints.Size;
 import java.sql.Date;
 import lombok.Data;
 
-/**
- * パークマスタテーブル用エンティティ
- */
 @Entity
 @Data
 @Table(name = "parks")

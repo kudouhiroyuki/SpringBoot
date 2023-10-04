@@ -13,6 +13,7 @@ import com.example.demo.repository.ParkRepository;
 import com.example.demo.repository.ParkAreaRepository;
 import com.example.demo.entity.ParksEntity;
 import com.example.demo.entity.ParksAreasEntity;
+import com.example.demo.entity.AreasComplexesEntity;
 
 @RestController
 public class ParkController {
@@ -68,5 +69,15 @@ public class ParkController {
       }
     }
     return areasResult;
+  }
+
+  /**
+   * コンプレックス一覧取得API(GET:/areas/complexes?area_id=XXX)
+   * curl -v -X GET "http://localhost:8080/areas/complexes?area_id="
+   * curl -v -X GET "http://localhost:8080/areas/complexes?area_id=1,2"
+   */
+  @RequestMapping(value = "/areas/complexes")
+  public List<AreasComplexesEntity> getAreasComplexes(@RequestParam("area_id") List<Integer> areaIds) {
+    return null;
   }
 }

@@ -16,22 +16,22 @@ import lombok.Data;
 
 @Entity
 @Data
-@Table(name = "parks_areas")
-public class ParksAreasEntity {
-  // 識別ID(エリアID)
+@Table(name = "areas_complexes")
+public class AreasComplexesEntity {
+  // 識別ID(コンプレックスID)
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  // パークID
-  @Column(name = "park_id", nullable = false)
-  private int parkId;
+  // エリアID
+  @Column(name = "park_area_id", nullable = false)
+  private int parkAreaId;
 
-  // エリアコード
+  // コンプレックスコード
   @Column(name = "code", length = 10, nullable = false)
   private String code;
 
-  // エリア名
+  // コンプレックス名
   @Column(name = "name", length = 255, nullable = false)
   private String name;
 
@@ -39,3 +39,4 @@ public class ParksAreasEntity {
   @Column(name = "is_deleted", nullable = false)
   private boolean isDeleted;
 }
+  
