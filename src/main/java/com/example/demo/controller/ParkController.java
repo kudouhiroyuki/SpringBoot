@@ -14,25 +14,16 @@ import com.example.demo.repository.ParkAreaRepository;
 import com.example.demo.entity.ParksEntity;
 import com.example.demo.entity.ParkAreasEntity;
 
-/**
- * パーク関連の処理を行うコントローラー
- */
 @RestController
 public class ParkController {
-  // パークマスタテーブル用リポジトリ
   @Autowired
   private ParkRepository parkRepository;
 
-  // エリアマスタテーブル用リポジトリ
   @Autowired
   private ParkAreaRepository parkAreaRepository;
 
   /**
    * パーク一覧取得API(GET:/parks?id=XXX)
-   * 
-   * パークの一覧を取得します。
-   * 対象のIdの情報を取得します。
-   * Idは複数設定することができ、取得できた情報を全て返却します。
    * curl -v -X GET "http://localhost:8080/parks?id="
    * curl -v -X GET "http://localhost:8080/parks?id=1,2"
    */
@@ -57,10 +48,6 @@ public class ParkController {
   
   /**
    * エリア一覧取得API(GET:/parks/areas?park_id=XXX)
-   *
-   * エリアの一覧を取得します。
-   * 対象のパークIDに紐づく情報を取得します。
-   * パークIDは複数設定することができ、取得できた情報を全て返却します。
    * curl -v -X GET "http://localhost:8080/parks/areas?park_id="
    * curl -v -X GET "http://localhost:8080/parks/areas?park_id=1,2"
    */
