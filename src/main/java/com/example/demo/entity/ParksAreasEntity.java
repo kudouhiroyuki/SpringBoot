@@ -19,8 +19,8 @@ import lombok.Data;
  */
 @Entity
 @Data
-@Table(name = "park_areas")
-public class ParkAreasEntity {
+@Table(name = "parks_areas")
+public class ParksAreasEntity {
   // 識別ID(エリアID)
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

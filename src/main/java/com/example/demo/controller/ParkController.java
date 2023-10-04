@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.example.demo.repository.ParkRepository;
 import com.example.demo.repository.ParkAreaRepository;
 import com.example.demo.entity.ParksEntity;
-import com.example.demo.entity.ParkAreasEntity;
+import com.example.demo.entity.ParksAreasEntity;
 
 @RestController
 public class ParkController {
@@ -52,17 +52,17 @@ public class ParkController {
    * curl -v -X GET "http://localhost:8080/parks/areas?park_id=1,2"
    */
   @RequestMapping(value = "/parks/areas")
-  public List<ParkAreasEntity> getParksAreas(@RequestParam("park_id") List<Integer> parkIds) {
+  public List<ParksAreasEntity> getParksAreas(@RequestParam("park_id") List<Integer> parkIds) {
     // DBから対象のパークに紐づくエリアの一覧を取得する。
-    List<ParkAreasEntity> areas = null;
+    List<ParksAreasEntity> areas = null;
     if (parkIds.size() == 0) {
       areas = parkAreaRepository.findAll();
     } else {
       areas = parkAreaRepository.findByParkIdIn(parkIds);
     }
     // 削除されていないものを抽出する。
-    List<ParkAreasEntity> areasResult = new ArrayList<>();
-    for (ParkAreasEntity area : areas) {
+    List<ParksAreasEntity> areasResult = new ArrayList<>();
+    for (ParksAreasEntity area : areas) {
       if (!area.isDeleted()) {
         areasResult.add(area);
       }

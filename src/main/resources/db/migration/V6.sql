@@ -40,7 +40,7 @@ INSERT INTO spring.parks (code, name, is_deleted) VALUES
 ('CODE12', 'パーク2', false),
 ('CODE13', 'パーク3', false);
 
-CREATE TABLE park_areas (
+CREATE TABLE parks_areas (
   id INT AUTO_INCREMENT,
   park_id INT NOT NULL,
   code VARCHAR(10) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE park_areas (
   is_deleted BOOLEAN NOT NULL,
   PRIMARY KEY (id)
 );
-INSERT INTO spring.park_areas (park_id, code, name, is_deleted) VALUES
+INSERT INTO spring.parks_areas (park_id, code, name, is_deleted) VALUES
 (1, 'CODE11', 'パークエリア1', true),
 (2, 'CODE12', 'パークエリア2', false),
 (3, 'CODE13', 'パークエリア3', false);
