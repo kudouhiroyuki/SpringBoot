@@ -7,9 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.entity.ParkAreasEntity;
 
-/**
- * エリアマスタテーブル用リポジトリ
- */
 @Repository
 public interface ParkAreaRepository extends JpaRepository<ParkAreasEntity,Integer>{
   /**
