@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.example.demo.repository.ParkRepository;
 import com.example.demo.repository.ParkAreaRepository;
 import com.example.demo.repository.AreaComplexRepository;
+import com.example.demo.repository.ComplexeFacilitiesRepository;
 import com.example.demo.entity.ParksEntity;
 import com.example.demo.entity.ParksAreasEntity;
 import com.example.demo.entity.AreasComplexesEntity;
+import com.example.demo.entity.ComplexesFacilitiesEntity;
 
 @RestController
 public class ParkController {
@@ -26,6 +28,9 @@ public class ParkController {
 
   @Autowired
   private AreaComplexRepository areaComplexRepository;
+
+  @Autowired
+  private ComplexeFacilitiesRepository complexeFacilitiesRepository;
 
   /**
    * パーク一覧取得API(GET:/parks?id=XXX)
@@ -97,5 +102,29 @@ public class ParkController {
       }
     }
     return complexesResult;
+  }
+
+  /**
+   * ファシリティ一覧取得API(GET:/complexes/facilities?area_id=XXX)
+   * curl -v -X GET "http://localhost:8080/complexes/facilities?complex_id="
+   * curl -v -X GET "http://localhost:8080/complexes/facilities?complex_id=1,2"
+   */
+  @RequestMapping(value = "/complexes/facilities")
+  public List<ComplexesFacilitiesEntity> getComplexesFacilities(@RequestParam("complex_id") List<Integer> complexIds) {
+    // DBから対象のコンプレックスに紐づく施設の一覧を取得する。
+    List<ComplexesFacilitiesEntity> facilities = null;
+    if (complexIds.size() == 0) {
+      facilities = complexeFacilitiesRepository.findAll();
+    } else {
+      facilities = complexeFacilitiesRepository.findByAreaComplexIdIn(complexIds);
+    }
+    // 削除されていないものを抽出する。
+    List<ComplexesFacilitiesEntity> facilitiesResult = new ArrayList<>();
+    for (ComplexesFacilitiesEntity facilitie : facilities) {
+      if (!facilitie.isDeleted()) {
+        facilitiesResult.add(facilitie);
+      }
+    }
+    return facilitiesResult;
   }
 }
