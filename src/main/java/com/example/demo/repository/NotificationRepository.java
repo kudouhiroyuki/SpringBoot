@@ -16,7 +16,7 @@ public interface NotificationRepository extends JpaRepository<NotificationsEntit
   // SELECT * FROM spring.notification WHERE NOW() BETWEEN derivery_started_at and derivery_ended_at;
   // SELECT * FROM spring.notification WHERE is_important = true AND (NOW() BETWEEN derivery_started_at AND derivery_ended_at);
   @Query(value = "SELECT * FROM notifications WHERE is_important = ?1 AND (?2 BETWEEN derivery_started_at AND derivery_ended_at)", nativeQuery = true)
-  List<NotificationsEntity> findNotifications(int isImportant, Date dateTime);
+  List<NotificationsEntity> findNotifications(boolean isImportant, Date dateTime);
   
   // SELECT COUNT(*) FROM spring.notification WHERE is_important = true;
   // SELECT COUNT(*) FROM spring.notification WHERE is_important = false;

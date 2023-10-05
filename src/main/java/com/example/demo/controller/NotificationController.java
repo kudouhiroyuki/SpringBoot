@@ -21,10 +21,10 @@ public class NotificationController {
    * curl -v -X GET "http://localhost:8080/notifications/list/0"
    * curl -v -X GET "http://localhost:8080/notifications/list/1"
    */
-  @RequestMapping("notifications/list/{isImportant}")
-  public List<NotificationsEntity> getNotifications(@PathVariable int isImportant) {
+  @RequestMapping("notifications/list/{is_important}")
+  public List<NotificationsEntity> getNotifications(@PathVariable("is_important") int isImportant) {
     // DBからお知らせの一覧を取得する。
-    List<NotificationsEntity> notifications = notificationRepository.findNotifications(isImportant, new Date());
+    List<NotificationsEntity> notifications = notificationRepository.findNotifications(isImportant == 1, new Date());
     return notifications;
   }
 }
