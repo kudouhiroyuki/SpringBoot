@@ -11,7 +11,6 @@ import com.example.demo.entity.NotificationsEntity;
 
 @Repository
 public interface NotificationRepository extends JpaRepository<NotificationsEntity,Integer>{
-
   // SELECT * FROM spring.notification WHERE is_important = true;
   // SELECT * FROM spring.notification WHERE is_important = false;
   // SELECT * FROM spring.notification WHERE NOW() BETWEEN derivery_started_at and derivery_ended_at;

@@ -1,27 +1,18 @@
 package com.example.demo.controller;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Date;
-import java.util.ArrayList;
 
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import lombok.Data;
-
-import jakarta.websocket.server.PathParam;
 
 import com.example.demo.repository.NotificationRepository;
 import com.example.demo.repository.AbbreviationRepository;
@@ -48,11 +39,6 @@ public class ApiController {
   
   private RestTemplate restTemplate;
 
-  @GetMapping("notifications/list/{isImportant}")
-  public List<NotificationsEntity> getNotifications(@PathVariable int isImportant) {
-    List<NotificationsEntity> notifications = notificationRepository.findNotifications(isImportant, new Date());
-    return notifications;
-  }
   @GetMapping("notifications/list/{isImportant}/count")
   public int getNotificationsCount(@PathVariable int isImportant) {
     int notificationsCount = notificationRepository.countNotifications(isImportant, new Date());
@@ -200,8 +186,6 @@ public class ApiController {
   // }
 }
 
-// curl -v -X GET "http://localhost:8080/api/notifications/list/0"
-// curl -v -X GET "http://localhost:8080/api/notifications/list/1"
 // curl -v -X GET "http://localhost:8080/api/notifications/list/0/count"
 // curl -v -X GET "http://localhost:8080/api/notifications/list/1/count"
 // curl -v -X GET "http://localhost:8080/api/notifications/1"
