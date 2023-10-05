@@ -27,4 +27,16 @@ public class NotificationController {
     List<NotificationsEntity> notifications = notificationRepository.findNotifications(isImportant = 1, new Date());
     return notifications;
   }
+
+  /**
+   * お知らせ件数取得API(GET:/notifications/list/{is_important}/count)
+   * curl -v -X GET "http://localhost:8080/notifications/list/0/count"
+   * curl -v -X GET "http://localhost:8080/notifications/list/1/count"
+   */
+  @RequestMapping("notifications/list/{is_important}/count")
+  public int getNotificationsCount(@PathVariable("is_important") int isImportant) {
+    // DBからお知らせの件数を取得する。
+    int notificationsCount = notificationRepository.countNotifications(isImportant = 1, new Date());
+    return notificationsCount;
+  }
 }

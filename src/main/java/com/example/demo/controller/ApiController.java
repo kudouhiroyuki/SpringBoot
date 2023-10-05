@@ -39,11 +39,6 @@ public class ApiController {
   
   private RestTemplate restTemplate;
 
-  @GetMapping("notifications/list/{isImportant}/count")
-  public int getNotificationsCount(@PathVariable int isImportant) {
-    int notificationsCount = notificationRepository.countNotifications(isImportant, new Date());
-    return notificationsCount;
-  }
   @GetMapping("notifications/{id}")
   public Optional<NotificationsEntity> getNotificaton(@PathVariable int id) {
     Optional<NotificationsEntity> notification = notificationRepository.findById(id);
@@ -186,8 +181,6 @@ public class ApiController {
   // }
 }
 
-// curl -v -X GET "http://localhost:8080/api/notifications/list/0/count"
-// curl -v -X GET "http://localhost:8080/api/notifications/list/1/count"
 // curl -v -X GET "http://localhost:8080/api/notifications/1"
 // curl -v -X GET "http://localhost:8080/api/notifications/2"
 // curl -v -X GET "http://localhost:8080/api/notifications/3"
