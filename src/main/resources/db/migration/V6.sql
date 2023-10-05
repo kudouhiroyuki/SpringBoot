@@ -78,3 +78,15 @@ INSERT INTO spring.complexes_facilities (area_complex_id, code, name, is_deleted
 (1, 'CODE11', 'コンプレックス施設1', true),
 (2, 'CODE12', 'コンプレックス施設2', false),
 (3, 'CODE13', 'コンプレックス施設3', false);
+
+CREATE TABLE types (
+  id INT AUTO_INCREMENT,
+  code VARCHAR(10) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  is_deleted BOOLEAN NOT NULL,
+  PRIMARY KEY (id)
+);
+INSERT INTO spring.types (code, name, is_deleted) VALUES
+('CODE11', '種類1', true),
+('CODE12', '種類2', false),
+('CODE13', '種類3', false);

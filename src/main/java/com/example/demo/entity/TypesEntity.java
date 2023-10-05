@@ -18,20 +18,16 @@ import lombok.Data;
 @Data
 @Table(name = "types")
 public class TypesEntity {
-  // 識別ID(施設ID)
+  // 識別ID(種類ID)
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
 
-  // コンプレックスID
-  @Column(name = "area_complex_id", nullable = false)
-  private int areaComplexId;
-
-  // 施設コード
+  // 種類コード
   @Column(name = "code", length = 10, nullable = false)
   private String code;
 
-  // 施設名
+  // 種類名
   @Column(name = "name", length = 255, nullable = false)
   private String name;
 

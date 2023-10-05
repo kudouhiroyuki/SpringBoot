@@ -13,6 +13,7 @@ import com.example.demo.repository.ParkRepository;
 import com.example.demo.repository.ParkAreaRepository;
 import com.example.demo.repository.AreaComplexRepository;
 import com.example.demo.repository.ComplexeFacilitiesRepository;
+import com.example.demo.repository.TypeRepository;
 import com.example.demo.entity.ParksEntity;
 import com.example.demo.entity.ParksAreasEntity;
 import com.example.demo.entity.AreasComplexesEntity;
@@ -32,6 +33,9 @@ public class ParkController {
 
   @Autowired
   private ComplexeFacilitiesRepository complexeFacilitiesRepository;
+
+  @Autowired
+  private TypeRepository typeRepository;
 
   /**
    * パーク一覧取得API(GET:/parks?id=XXX)
@@ -136,6 +140,20 @@ public class ParkController {
    */
   @RequestMapping(value = "/types")
   public List<TypesEntity> getTypes(@RequestParam("id") List<Integer> ids) {
-    return null;
+    // DBから種類の一覧を取得する。
+    List<TypesEntity> types = null;
+    if (ids.size() == 0) {
+      types = typeRepository.findAll();
+    } else {
+      types = typeRepository.findByIdIn(ids);
+    }
+    // 削除されていないものを抽出する。
+    List<TypesEntity> typesResult = new ArrayList<>();
+    for (TypesEntity type : types) {
+      if (!type.isDeleted()) {
+        typesResult.add(type);
+      }
+    }
+    return typesResult;
   }
 }
