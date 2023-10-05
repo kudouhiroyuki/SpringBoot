@@ -17,6 +17,7 @@ import com.example.demo.entity.ParksEntity;
 import com.example.demo.entity.ParksAreasEntity;
 import com.example.demo.entity.AreasComplexesEntity;
 import com.example.demo.entity.ComplexesFacilitiesEntity;
+import com.example.demo.entity.TypesEntity;
 
 @RestController
 public class ParkController {
@@ -105,7 +106,7 @@ public class ParkController {
   }
 
   /**
-   * ファシリティ一覧取得API(GET:/complexes/facilities?area_id=XXX)
+   * ファシリティ一覧取得API(GET:/complexes/facilities?complex_id=XXX)
    * curl -v -X GET "http://localhost:8080/complexes/facilities?complex_id="
    * curl -v -X GET "http://localhost:8080/complexes/facilities?complex_id=1,2"
    */
@@ -126,5 +127,15 @@ public class ParkController {
       }
     }
     return facilitiesResult;
+  }
+
+  /**
+   * 種類一覧取得API(GET:/types?id=XXX)
+   * curl -v -X GET "http://localhost:8080/types?id="
+   * curl -v -X GET "http://localhost:8080/types?id=1,2"
+   */
+  @RequestMapping(value = "/types")
+  public List<TypesEntity> getTypes(@RequestParam("id") List<Integer> ids) {
+    return null;
   }
 }
