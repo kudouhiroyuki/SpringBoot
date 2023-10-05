@@ -24,7 +24,7 @@ public class NotificationController {
   @RequestMapping("notifications/list/{is_important}")
   public List<NotificationsEntity> getNotifications(@PathVariable("is_important") int isImportant) {
     // DBからお知らせの一覧を取得する。
-    List<NotificationsEntity> notifications = notificationRepository.findNotifications(isImportant == 1, new Date());
+    List<NotificationsEntity> notifications = notificationRepository.findNotifications(isImportant = 1, new Date());
     return notifications;
   }
 }
