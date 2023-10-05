@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 import java.util.Date;
+import java.util.Optional;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,17 @@ public class NotificationController {
     // DBからお知らせの件数を取得する。
     int notificationsCount = notificationRepository.countNotifications(isImportant = 1, new Date());
     return notificationsCount;
+  }
+
+  /**
+   * お知らせ取得API(GET:/notifications/{notification_id})
+   * curl -v -X GET "http://localhost:8080/notifications/1"
+   * curl -v -X GET "http://localhost:8080/notifications/2"
+   */
+  @RequestMapping("notifications/{notification_id}")
+  public Optional<NotificationsEntity> getNotificaton(@PathVariable("notification_id") int id) {
+    // DBからお知らせを取得する。
+    Optional<NotificationsEntity> notification = notificationRepository.findById(id);
+    return notification;
   }
 }

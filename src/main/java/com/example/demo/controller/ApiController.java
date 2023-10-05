@@ -14,9 +14,7 @@ import org.springframework.http.ResponseEntity;
 
 import lombok.Data;
 
-import com.example.demo.repository.NotificationRepository;
 import com.example.demo.repository.AbbreviationRepository;
-import com.example.demo.entity.NotificationsEntity;
 import com.example.demo.entity.AbbreviationsEntity;
 
 @Data
@@ -32,18 +30,9 @@ class TestEntity {
 @RequestMapping("/api") 
 public class ApiController {
   @Autowired
-  private NotificationRepository notificationRepository;
-
-  @Autowired
   private AbbreviationRepository abbreviationRepository;
   
   private RestTemplate restTemplate;
-
-  @GetMapping("notifications/{id}")
-  public Optional<NotificationsEntity> getNotificaton(@PathVariable int id) {
-    Optional<NotificationsEntity> notification = notificationRepository.findById(id);
-    return notification;
-  }
 
   @GetMapping("abbreviations/{id}")
   public Optional<AbbreviationsEntity> getAbbreviation(@PathVariable int id) {
@@ -180,10 +169,6 @@ public class ApiController {
   //   System.out.println(result5);
   // }
 }
-
-// curl -v -X GET "http://localhost:8080/api/notifications/1"
-// curl -v -X GET "http://localhost:8080/api/notifications/2"
-// curl -v -X GET "http://localhost:8080/api/notifications/3"
 
 // curl -v -X GET "http://localhost:8080/api/abbreviations/1"
 // curl -v -X GET "http://localhost:8080/api/abbreviations/2"
